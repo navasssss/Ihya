@@ -95,108 +95,40 @@
 
 
 
-        <section class="hidden flex flex-col place-content-center items-center" id="section3">
-            <h1 class="text-3xl m-3 font-semibold text-center mt-10">
-                Select your <span class="text-nowrap"> interested areas</span>
-            </h1>
-            <p class="text-xs text-center">
-                *Select areas according to your experience
-                <span class="text-nowrap">and educational qualification in it</span>
-            </p>
 
-            <!-- #box-->
-            <form action="" class="flex place-content-center">
-                <div class="flex flex-wrap md:w-[80%] place-content-center mt-16">
-                    <input type="checkbox" name="area" id="medical" class="hidden peer" />
-                    <label for="medical" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            Medical
-                        </div>
-                    </label>
-                    <input type="checkbox" name="area" id="Engineering" class="hidden peer" />
-                    <label for="Engineering" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            Engineering
-                        </div>
-                    </label>
-                    <input type="checkbox" name="area" id="B.Ed" class="hidden peer" />
-                    <label for="B.Ed" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            B.Ed
-                        </div>
-                    </label>
-                    <input type="checkbox" name="area" id="medical" class="hidden peer" />
-                    <label for="medical" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            Medical
-                        </div>
-                    </label>
-                    <input type="checkbox" name="area" id="medical" class="hidden peer" />
-                    <label for="medical" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            Medical
-                        </div>
-                    </label>
-                    <input type="checkbox" name="area" id="medical" class="hidden peer" />
-                    <label for="medical" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            Medical
-                        </div>
-                    </label>
-                    <input type="checkbox" name="area" id="medical" class="hidden peer" />
-                    <label for="medical" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            Medical
-                        </div>
-                    </label>
-                    <input type="checkbox" name="area" id="medical" class="hidden peer" />
-                    <label for="medical" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            Medical
-                        </div>
-                    </label>
-                    <input type="checkbox" name="area" id="medical" class="hidden peer" />
-                    <label for="medical" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            Medical
-                        </div>
-                    </label>
-                    <input type="checkbox" name="area" id="medical" class="hidden peer" />
-                    <label for="medical" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            Medical
-                        </div>
-                    </label>
-                    <input type="checkbox" name="area" id="medical" class="hidden peer" />
-                    <label for="medical" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            Medical
-                        </div>
-                    </label>
-                    <input type="checkbox" name="area" id="medical" class="hidden peer" />
-                    <label for="medical" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            Medical
-                        </div>
-                    </label>
-                    <input type="checkbox" name="area" id="medical" class="hidden peer" />
-                    <label for="medical" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            Medical
-                        </div>
-                    </label>
-                    <input type="checkbox" name="area" id="medical" class="hidden peer" />
-                    <label for="medical" class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
-                        <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
-                            Medical
-                        </div>
-                    </label>
-                </div>
-
-                <!-- <button class="bg-[#D39C32] rounded-xl px-8 w-[30%] py-1.5 my-2 text-white text-xl font-semibold text-nowrap" type="submit ">Next</button> -->
-            </form>
-        </section>
     </div>
+    <section class="hidden flex flex-col place-content-center items-center" id="section3">
+        <h1 class="text-3xl m-3 font-semibold text-center mt-10">
+            Select your <span class="text-nowrap"> interested areas</span>
+        </h1>
+        <p class="text-xs text-center">
+            *Select areas according to your experience
+            <span class="text-nowrap">and educational qualification in it</span>
+        </p>
+
+        <!-- #box-->
+        <form action="" class="flex place-content-center">
+            <div class="flex flex-wrap md:w-[80%] place-content-center mt-16">
+                @foreach ($interestAreas as $int)
+                    <div>
+                        <input type="checkbox" name="area[]" value="{{ $int->id }}" id="{{ $loop->iteration }}"
+                            class="hidden peer" />
+                        <label for="{{ $loop->iteration }}"
+                            class="peer-checked:*:bg-[#D39C32] peer-checked:*:text-white">
+                            <div class="bg-[#F2E4CA] border-2 border-[#AC802D] px-6 mx-1 mb-5 rounded-xl">
+                                {{ $int->name }}
+                            </div>
+                        </label>
+                    </div>
+                @endforeach
+                <button id="submit2"
+                    class="bg-[#D39C32] rounded-xl px-8  w-[30%] py-1.5 my-14 text-white text-xl font-semibold text-nowrap"
+                    type="submit ">Next</button>
+            </div>
+
+            <!-- <button class="bg-[#D39C32] rounded-xl px-8 w-[30%] py-1.5 my-2 text-white text-xl font-semibold text-nowrap" type="submit ">Next</button> -->
+        </form>
+    </section>
 </body>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -215,7 +147,6 @@
         }
     }
     $(document).ready(function() {
-
         let qualifications = [];
 
         // Close dropdown when clicking an item
@@ -241,8 +172,32 @@
                     qualifications: qualifications
                 },
                 success: function(response) {
-                    $("#section2").hide();
                     $("#section3").show();
+                    $("#section2").hide();
+
+                },
+                error: function(response) {
+                    alert("kkk")
+                }
+            })
+        })
+        $('#submit2').click(function(e) {
+            let interested_areas = $("input[name='area[]']:checked").map(function() {
+                return $(this).val()
+            }).get();
+            e.preventDefault();
+            $.ajax({
+                url: "{{ route('interest.store') }}",
+                method: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                },
+                data: {
+                    interested_areas: interested_areas
+                },
+                success: function(response) {
+                    // location.href =
+
                 },
                 error: function(response) {
                     alert("kkk")
