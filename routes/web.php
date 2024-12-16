@@ -6,6 +6,7 @@ use App\Http\Controllers\forum\ForumCommentController;
 use App\Http\Controllers\forum\ForumPostController;
 use App\Http\Controllers\InterestAreaController;
 use App\Http\Controllers\JobExamController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QualificationController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SavedJobsController;
@@ -54,6 +55,7 @@ Route::middleware(['auth', 'verification'])->group(function () {
     })->name('home');
     // Interest Area pages
     Route::resource('interest', InterestAreaController::class);
+    Route::resource('profile', ProfileController::class);
     Route::resource('qualification', QualificationController::class);
     Route::resource('jobs', JobExamController::class);
     Route::resource('savedjobs', SavedJobsController::class);
