@@ -197,7 +197,7 @@ class JobExamController extends Controller
         $user_gender = $user->gender; // Assuming gender is stored in the user table
         $userQualifications = $user->specialQualifications()->pluck('special_qualifications.id')->toArray();
         // Initialize the query with the relationships
-        $job = JobExam::with(['interestArea', 'jobQualifications'])->find(decrypt($id));
+        $job = JobExam::with(['interestArea', 'jobQualifications'])->find($id);
         $jobQualifications = $job->jobQualifications->pluck('id')->toArray();
         $result = $this->checkQualifications($userQualifications, $jobQualifications);
 

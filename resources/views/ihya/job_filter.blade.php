@@ -307,7 +307,7 @@
                                                         <div class="flex flex-col grow shrink-0 self-start basis-0 w-fit">
                                                             <div class="flex text-center w-full">
                                                                 <h2 class=" text-2xl font-semibold leading-1 text-black md:shrink-0 text-start">
-                                                                    ${element.job.id}</h2>
+                                                                    ${element.job.title}</h2>
                                                                 <span class="z-10 px-2.5 pt-2 ml-3 pb-2 my-auto text-base font-medium leading-4 md:text-nowrap text-white bg-red-600 rounded-lg md:ml-2 md:mb-1 md:py-1 ">Not Qualified</span>
                                                             </div>`;
                                 first = first + `<p class="mt-1.5 text-base font-medium leading-6 text-black max-md:mr-2.5">
@@ -326,7 +326,8 @@
                                     <p class="self-end md:self-start text-sm font-medium leading-none text-black max-md:mr-2.5 md:mr-0 md:text-center md:mt-7 md:ml-1  mr-6">
                                         Vacancies: <span class="font-bold">56</span>
                                     </p>
-                                   <a href="${jobShowBaseUrl}${element.job.title}"><button class="mt-3 px-5 md:px-2  py-1.5 md:text-nowrap text-lg font-semibold text-white rounded-xl bg-[#D39C32] hover:bg-yellow-800  focus:outline-none focus:ring-2 focus:ring-[#dfdcd6]" tabindex="0">Read more</button>
+                                   <a href="${jobShowBaseUrl.replace('__ID__', element.job.id)}">
+                                    <button class="mt-3 px-5 md:px-2  py-1.5 md:text-nowrap text-lg font-semibold text-white rounded-xl bg-[#D39C32] hover:bg-yellow-800  focus:outline-none focus:ring-2 focus:ring-[#dfdcd6]" tabindex="0">Read more</button>
                                     </a>
                                 </div>
                             </div>

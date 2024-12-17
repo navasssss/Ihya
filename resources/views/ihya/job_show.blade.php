@@ -15,7 +15,9 @@
                             </div>
                             <div class="w-2/3">
                                 <h1 class="text-4xl font-semibold leading-[67px] max-md:text-3xl max-md:leading-[40px]">
-                                    UI/UX <br /> Designing
+
+                                    {{ $data[0]['job']->title }}
+
                                 </h1>
                             </div>
                         </div>
@@ -49,9 +51,7 @@
                     <!-- Description -->
                     <h2 class="mt-12 text-4xl font-medium max-md:text-2xl">Description</h2>
                     <p class="mt-4 text-lg max-md:text-sm">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                        industry's
-                        standard dummy text ever since the 1500s.
+                        {{ $data[0]['job']->description }}
                     </p>
                     <!-- Vacancy Section -->
                     <h2 class="mt-12 text-4xl font-medium max-md:text-2xl">Vacancy</h2>
