@@ -1,94 +1,54 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+@extends('ihya.app')
+@section('content')
+    <style>
+        /* Smooth Scrolling Effect */
+        html {
+            scroll-behavior: smooth;
+        }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite('resources/css/app.css')
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
-    <title>Document</title>
-</head>
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
 
-<style>
-    .body-lines {
-        background-image: url("../src/lines\ 1.svg");
+        .fade-in-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 
-    }
 
-    .down {
-        background-image: url("../src/page1.svg");
-    }
 
-    .sec1 {
-        background-image: url("../src/lines\ 1.svg");
-
-    }
-
-    .foot-img {
-        background-image: url("{{ asset('assets/src/foot\ image.svg') }}");
-    }
-
-    .img-bg {
-        background-image: url("{{ asset('assets/src/Rectangle\ 2.svg') }}");
-    }
-
-    * {
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .custom-clip {
-        clip-path: polygon(0 0, 50.2% 7.2%, 100% 12.3%, 100% 94%, 0 100%);
-    }
-
-    .main-clip {
-        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-    }
-
-    .profile-bg {
-        background-image: url("{{ asset('assets/src/') }}");
-    }
-
-    .mobile-svg {
-        clip-path: polygon(0% 0%, 100% 0%, 100% 76.3%, 87.64% 76.94%, 74.2% 77.72%,
-                60.78% 78.5%, 47.39% 79.28%, 34.03% 80.06%, 20.61% 80.84%,
-                7.22% 81.62%, 0% 81.94%, 0% 81.94%, 0% 0%);
-        background-color: bisque;
-    }
-</style>
-
-<body class="">
-
-    <section class="grid grid-flow-row w-full sec1">
-        <nav class="flex flex-col">
+    <section class="grid grid-flow-row w-full sec1 fade-in">
+        {{-- <nav class="flex flex-col">
             <div class="grid grid-cols-3 md:px-36 px-8 pt-5">
                 <div class="flex place-content-center">
-                    <img src="{{ asset('assets/src/IHYA logo png 1.png') }}" alt="IHYA Logo"
-                        class="max-h-20 md:h-auto h-10">
+                    <img src="{{ asset('assets/src/IHYA logo png 1.png" alt="IHYA Logo" class="max-h-20 md:h-auto h-10">
                 </div>
                 <div class="flex place-content-center items-center">
 
                     <div class="hidden  md:flex flex-grow place-content-around">
                         <div class="flex flex-col items-center justify-center "><img class="max-h-[34px] w-auto"
-                                src="{{ asset('assets/src/community.svg') }}"  alt="Forum">
+                                src="{{ asset('assets/src/community.svg"  alt="Forum">
                             <p class="text-center text-[10px]">Community</p>
                         </div>
                         <div class="flex flex-col items-center justify-center"><img class="max-h-[34px] w-auto"
-                                src="{{ asset('assets/src/Job Seeker.svg') }}"  alt="Forum">
+                                src="{{ asset('assets/src/Job Seeker.svg"  alt="Forum">
                             <p class="text-center text-[10px]">Jobs</p>
                         </div>
                         <div class="flex flex-col items-center justify-center text-nowrap align-middle"><img
-                                class="max-h-[34px] w-auto" src="{{ asset('assets/src/career path.svg') }}"
-                                alt="Forum">
+                                class="max-h-[34px] w-auto" src="{{ asset('assets/src/career path.svg"  alt="Forum">
                             <p class="text-center text-[10px]">Set Career</p>
                         </div>
                     </div>
 
                 </div>
 
-                <div class="flex items-center flex-grow place-content-center text-xl">
+                <div class="flex items-center flex-grow place-content-center text-xl fade-in">
                     <div class="flex  md:hidden">
-
+                        <?xml version="1.0" ?>
                         <!DOCTYPE svg
                             PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg
                             height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1"
@@ -112,16 +72,16 @@
                 <p class="opacity-0">&blank;</p>
             </div>
 
-        </nav>
+        </nav> --}}
 
         <!---------------------------------------------------------------------->
 
-        <div class="grid md:grid-cols-2 w-full mt-16 md:mb-8">
+        <div class="grid md:grid-cols-2 w-full mt-16 md:mb-8 fade-in">
 
 
-            <div class="flex flex-col place-content-center items-center mb-6 md:pb-32 w-full">
-                <div>
-                    <h2 class="font-semibold text-center md:text-4xl text-3xl mb-2">Welcome to <span
+            <div class="flex flex-col place-content-center items-center mb-6 md:pb-32 w-full h-full ">
+                <div class="">
+                    <h2 class="h-full font-semibold text-center md:text-10xl text-3xl mb-2">Welcome to <span
                             class="text-[#D39C32] ">Ihya,</span>
                     </h2>
                     <p class="text-sm md:text-base px-8 text-center md:px-0">Join us and be part of this inspiring
@@ -130,7 +90,7 @@
                 </div>
                 <div>
                     <div class="mt-12 flex flex-col text-center md:w-full"><button
-                            class="bg-gold-bg-dark md:text-2xl text-lg rounded-full py-1 border-gold border-solid border-2 md:px-18 px-1">Proceed
+                            class="bg-gold-bg-dark md:text-2xl text-lg rounded-full py-1 border-gold border-solid border-2 md:px-18 px-6 my-4">Proceed
                             to Join</button>
                         <p class="text-nowrap text-sm mt-2">Already have an account? <a href="#"
                                 class="text-gold-dark">Sign in</a></p>
@@ -145,119 +105,108 @@
 
     </section>
 
-    <section class=" w-full overflow-clip flex flex-col items-center mt-14 max-md:mt-10 md:mb-148"
-        aria-labelledby="browse-section">
-        <h2 id="browse-section" class="text-4xl font-semibold text-black mb-3">Browse your job by your interest</h2>
-        <p class="mt-2 text-xl leading-6 text-center text-black mb-16">
-            Explore the opportunities by Industry
-            <br />
-            Find your ideal role
-        </p>
-
-        <div class="flex flex-row gap-5 text-center mb-16" role="region" aria-label="Career Options">
-            <div class="flex flex-col place-content-center px-20 py-12 text-center bg-white shadow-2xl rounded-[45px] max-sm:hidden"
-                role="article" tabindex="0">
-                <div class="content-center text-4xl font-semibold text-orange-400">
-                    Teacher
-                </div>
-                <div class="mt-8 text-xl leading-7 text-black w-[262px]">
-                    Responsible for Planning, designing, and overseeing construction projects
-                </div>
-            </div>
-            <div class="flex flex-col justify-start items-center place-content-center px-20 py-12 bg-white shadow-2xl rounded-[45px] max-md:px-5 max-sm:hidden"
-                role="article" tabindex="0">
-                <div class="self-center text-4xl font-semibold text-orange-400">
-                    Professor
-                </div>
-                <div class="mt-8 text-xl leading-8 text-black w-[262px]">
-                    Responsible for Planning, designing, and overseeing construction projects
-                </div>
-            </div>
-            <div class="flex flex-col justify-start items-center place-content-center px-20 py-12 shadow-2xl rounded-[45px] max-md:px-5 max-sm:hidden"
-                style="background-color: #D39C32;" role="article" tabindex="0">
-                <div class="self-center text-4xl font-semibold text-white">
-                    Professor
-                </div>
-                <div class="mt-8 text-xl leading-8 text-white w-[262px]">
-                    Responsible for Planning, designing, and overseeing construction projects
-                </div>
-            </div>
-            <div class="flex flex-col justify-start items-center place-content-center px-20 py-12 bg-white shadow-2xl rounded-[45px] max-md:px-5 max-sm:hidden"
-                role="article" tabindex="0">
-                <div class="self-center text-4xl font-semibold text-orange-400">
-                    Professor
-                </div>
-                <div class="mt-8 text-xl leading-8 text-black w-[262px]">
-                    Responsible for Planning, designing, and overseeing construction projects
-                </div>
-            </div>
-            <div class="flex flex-col justify-start items-center place-content-center px-20 py-12 bg-white shadow-2xl rounded-[45px] max-md:px-5 max-sm:hidden"
-                role="article" tabindex="0">
-                <div class="self-center text-4xl font-semibold text-orange-400">
-                    Professor
-                </div>
-                <div class="mt-8 text-xl leading-8 text-black w-[262px]">
-                    Responsible for Planning, designing, and overseeing construction projects
-                </div>
-            </div>
-
-        </div>
-    </section>
 
 
-    <section>
+    <section class="fade-in">
         <div class=" bg-gold-bg md:mx-52 mx-10 my-28 md:mb-14 flex items-center rounded-3xl relative">
             <div id="default-carousel" class="relative w-full" data-carousel="static">
                 <!-- Carousel wrapper -->
                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                    <!-- 1 -->
 
+
+
+
+                    <!-- Item 1 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                         <div class="grid md:grid-cols-2 grid-cols-1 px-8 h-full">
-                            <div class="flex flex-col md:p-10 p-4 place-content-center items-center ">
-                                <h1 class="md:text-3xl text-2xl">Simple to use and
-                                    manage with easy access</h1>
-                                <p class="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the
-                                    1500s,</p>
+                            <div class="flex flex-col md:p-10 p-6 place-content-center items-center ">
+                                <h1 class="md:text-xl text-2xl"> User Profile and Registration: Enables users to
+                                    register, track educational qualifications, job history, and set career goals.
+
+
+                                </h1>
+
                             </div>
-                            <div class="flex h-full m-5">
-                                <img src="{{ asset('assets/src/Person using phone.svg') }}" alt=""
-                                    class="md:block hidden">
+                            <div class="flex items-center place-content-center h-full m-5">
+                                <img src="{{ asset('assets/src/profile.jpg') }}" alt=""
+                                    class="md:block hidden h-64 w-auto">
                             </div>
                         </div>
 
                     </div>
 
+
+
                     <!-- Item 1 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset('assets/src/150 employ.svg') }}"
-                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="">
+                        <div class="grid md:grid-cols-2 grid-cols-1 px-8 h-full">
+                            <div class="flex flex-col md:p-10 p-4 place-content-center items-center ">
+                                <h1 class="md:text-xl text-2xl">Job and Education Opportunities:
+
+                                    Centralized platform showcasing job vacancies, qualification exams, scholarships,
+                                    and reservation benefits.
+
+                                    Links for job applications and resources tailored to minority communities.
+
+
+                                </h1>
+
+                            </div>
+                            <div class="flex items-center place-content-center h-full m-5">
+                                <img src="{{ asset('assets/src/opportunities.jpg') }}" alt=""
+                                    class="md:block hidden h-64  w-auto">
+                            </div>
+                        </div>
+
                     </div>
-                    <!-- Item 2 -->
+
+
+                    <!-- Item 1 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset('assets/src/1500+ jobs .svg') }}"
-                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="">
+                        <div class="grid md:grid-cols-2 grid-cols-1 px-8 h-full">
+                            <div class="flex flex-col md:p-10 p-4 place-content-center items-center ">
+                                <h1 class="md:text-xl text-2xl"> Community Engagement and Resources:
+
+                                    Forums for discussions, doubt clearance, and sharing resources from across the web.
+
+                                    Features like chat and comments for interaction among users and technical support
+                                    from an assistant chatbot.
+
+
+
+
+                                </h1>
+
+                            </div>
+                            <div class="flex items-center place-content-center h-full m-5">
+                                <img src="{{ asset('assets/src/interaction.jpg') }}" alt=""
+                                    class="md:block hidden h-64  w-auto">
+                            </div>
+                        </div>
+
                     </div>
-                    <!-- Item 3 -->
+                    <!-- Item 1 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="/docs/images/carousel/carousel-3.svg"
-                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="">
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="/docs/images/carousel/carousel-4.svg"
-                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="">
-                    </div>
-                    <!-- Item 5 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="/docs/images/carousel/carousel-5.svg"
-                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="">
+                        <div class="grid md:grid-cols-2 grid-cols-1 px-8 h-full">
+                            <div class="flex flex-col md:p-10 p-4 place-content-center items-center ">
+                                <h1 class="md:text-xl text-2xl"> Admin and Super Admin Capabilities:
+
+                                    Tools for administrators to manage mahal data, resident details, exam registrations,
+                                    and monthly reporting.
+
+                                    Super admin capabilities for tracking Muslims in government sectors in Kerala and
+                                    generating detailed reports.
+
+
+                                </h1>
+
+                            </div>
+                            <div class="flex items-center place-content-center h-full m-5">
+                                <img src="{{ asset('assets/src/dashboard.jpg') }}" alt=""
+                                    class="md:block hidden h-64  w-auto">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <!-- Slider indicators -->
@@ -301,47 +250,47 @@
 
 
 
-    <section class="  bg-[#D9D9D9] py-7 mt-10 h-80 px-6">
-        <div class=" flex place-content-center items-center h-full ">
+    <section class=" fade-in bg-[#D9D9D9] py-7 mt-10 h-80 px-6">
+        <div class=" flex md:flex-row flex-col place-content-center items-center h-full ">
 
 
 
 
-            <div class="ml-48 text-center flex place-content-center items-center ">
+            <div class="md:ml-[20%] text-center flex flex-row md:place-content-center items-center ">
                 <h1 class="font-semibold md:text-3xl text-2xl mb-4"><span class="text-nowrap">Find perfect
                         job</span><br>
                     <span class="text-nowrap">according to you</span>
                 </h1>
             </div>
-            <div class="flex flex-wrap place-content-center md:gap-2  pl-6 ">
+            <div class="flex flex-wrap place-content-center md:gap-2  md:pl-16 h-full ">
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-xs font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">
                     Engineering</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Medical</button>
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-xs font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Medical</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Any
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-xs font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Any
                     degree</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Pharmacy</button>
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-xs font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Pharmacy</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Agriculture</button><br
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-xs font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Agriculture</button><br
                     class="md:block hidden">
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Architecture</button>
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-xs font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Architecture</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Hotel
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-xs font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Hotel
                     Management</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-5 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Sports
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-5 px-6 py-1 md:text-lg text-xs font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Sports
                     quota</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-5 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Teaching</button>
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-5 px-6 py-1 md:text-lg text-xs font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Teaching</button>
             </div>
         </div>
     </section>
 
-    <section class="">
+    <section class="fade-in">
         <div class="m-10 flex flex-col items-center place-content-center font-semibold">
             <h1 class=" m-5 text-3xl justify-center text-center">Watch video and <br>
                 catch more</h1>
@@ -351,9 +300,8 @@
                 <img src="{{ asset('assets/src/image-border.svg') }}" alt=""
                     class="w-full absolute left-0 bottom-0 rotate-180">
 
-                <iframe class=" mx-5 rounded-2xl md:w-auto aspect-video md:h-96 inset-0 my-5 "
-                    src="https://www.youtube.com/embed/OY2x0TyKzIQ?si=IbHWx65Q-0nTiX6C" title="YouTube video player"
-                    frameborder="0"
+                <iframe width="640" height="360" src="https://www.youtube.com/embed/-ctoM78lPF4"
+                    title="Ihya | Government Service Assistant for Muslim Community Upliftment" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
@@ -367,11 +315,11 @@
 
     </section>
 
-    <section class="flex w-full place-content-center foot-img h-[430px] pt-20">
+    <section class="fade-in flex w-full place-content-center foot-img h-[430px] pt-20">
 
         <div class="flex place-content-center w-1/2">
             <h1 class="text-left md:text-2xl text-xl ml-6 font-semibold">Let's gather for the <br>
-                better future of Ummah...</h1>
+                better future of Ummah....</h1>
         </div>
         <div class="flex place-content-center items-start w-1/2">
             <button
@@ -380,9 +328,9 @@
         </div>
     </section>
 
-    <footer class=" bg-[#D39C32] flex place-content-around  pt-16 text-white">
-        <div class="flex place-content-center text-center flex-col">.
-            <img src="{{ asset('assets/src/IHYA logo white 1.svg') }}" class="w-96" alt="IHYA Logo">
+    {{-- <footer class="hidden bg-[#D39C32] flex place-content-around  pt-16 text-white">
+        <div class="flex place-content-center text-center flex-col"><img src="{{ asset('assets/src/IHYA logo white 1.svg"
+                class="w-96" alt="IHYA Logo">
             <p>Government Service Assistance for <br>
                 Muslim Community Development</p>
         </div>
@@ -437,14 +385,31 @@
 
             </ul>
         </div>
-    </footer>
+    </footer> --}}
 
 
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // IntersectionObserver Setup
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("fade-in-visible");
+                        }
+                    });
+                }, {
+                    threshold: 0.2
+                } // Trigger when 20% of the element is visible
+            );
 
-</body>
-
-</html>
+            // Add fade-in effect to all elements with the class "fade-in"
+            const fadeElements = document.querySelectorAll(".fade-in");
+            fadeElements.forEach((el) => observer.observe(el));
+        });
+    </script>
+@endsection

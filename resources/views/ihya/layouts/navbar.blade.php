@@ -8,24 +8,27 @@
             </a>
 
             <!-- Navbar Menu & Profile Section -->
+
             <div class="flex items-center md:order-2 md:space-x-0 rtl:space-x-reverse gap-4 md:gap-10 ">
                 <div x-data="{ dropdownOpen: false, notifications: 10 }" class="relative">
                     <!-- Notification Button with Badge -->
-                    <button @click="dropdownOpen = !dropdownOpen"
-                        class="relative z-10 block rounded-md bg-white p-2 focus:outline-none">
-                        <svg class="h-6 w-6 text-gray-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                            fill="currentColor">
-                            <path
-                                d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
-                        </svg>
 
-                        <!-- Notification Badge -->
-                        <span x-show="notifications > 0"
-                            class="absolute top-0 right-0 inline-block bg-red-500 text-white text-xs rounded-full w-5 h-5 text-center font-semibold">
-                            <span x-text="notifications"></span>
-                        </span>
-                    </button>
+                    @if (Auth::user())
+                        <button @click="dropdownOpen = !dropdownOpen"
+                            class="relative z-10 block rounded-md bg-white p-2 focus:outline-none">
+                            <svg class="h-6 w-6 text-gray-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
+                            </svg>
 
+                            <!-- Notification Badge -->
+                            <span x-show="notifications > 0"
+                                class="absolute top-0 right-0 inline-block bg-red-500 text-white text-xs rounded-full w-5 h-5 text-center font-semibold">
+                                <span x-text="notifications"></span>
+                            </span>
+                        </button>
+                    @endif
                     <!-- Close Overlay on click outside -->
                     <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10">
                     </div>
@@ -50,39 +53,42 @@
                 </div>
 
                 <!-- Profile Dropdown -->
+                @if (Auth::user())
+                    <div class="flex justify-center" style="margin-top: -129px">
+                        <div x-data="{ dropdownOpen: false }" class="relative my-32 mb-1 hidden md:flex">
+                            <button @click="dropdownOpen = !dropdownOpen"
+                                class="relative z-10 block focus:outline-none bg-[#d36c32] text-white hover:bg-white hover:text-black rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:bg-[#ff8844]">
+                                <img class="w-8 h-8 rounded-full" src="{{ asset('assets/src/profile.png') }}"
+                                    alt="user photo" />
+                            </button>
 
-                <div class="flex justify-center" style="margin-top: -129px">
-                    <div x-data="{ dropdownOpen: false }" class="relative my-32 mb-1 hidden md:flex">
-                        <button @click="dropdownOpen = !dropdownOpen"
-                            class="relative z-10 block focus:outline-none bg-[#d36c32] text-white hover:bg-white hover:text-black rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:bg-[#ff8844]">
-                            <img class="w-8 h-8 rounded-full" src="{{ asset('assets/src/profile.png') }}"
-                                alt="user photo" />
-                        </button>
-
-                        <div x-show="dropdownOpen" @click="dropdownOpen = false"
-                            class="fixed inset-0 h-full w-full z-10"></div>
-
-                        <ul x-show="dropdownOpen"
-                            class="absolute right-0 mt-10 py-2 w-48 bg-white rounded-md shadow-xl z-20 border border-collapse">
-                            <li>
-                                <a href="{{ route('profile.index') }}"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
-                            </li>
-                            <li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-                                <a href="#" onclick="document.getElementById('logout-form').submit();"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                    Log out
-                                </a>
-                            </li>
+                            <div x-show="dropdownOpen" @click="dropdownOpen = false"
+                                class="fixed inset-0 h-full w-full z-10"></div>
 
 
-                        </ul>
+                            <ul x-show="dropdownOpen"
+                                class="absolute right-0 mt-10 py-2 w-48 bg-white rounded-md shadow-xl z-20 border border-collapse">
+                                <li>
+                                    <a href="{{ route('profile.index') }}"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
+                                </li>
+                                <li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+                                    <a href="#" onclick="document.getElementById('logout-form').submit();"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                        Log out
+                                    </a>
+                                </li>
+
+
+                            </ul>
+
+                        </div>
                     </div>
-                </div>
+                @endif
 
                 <!-- Mobile Menu Button -->
                 <button data-collapse-toggle="navbar-user" type="button"
