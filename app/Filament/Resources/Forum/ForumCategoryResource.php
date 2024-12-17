@@ -79,4 +79,8 @@ class ForumCategoryResource extends Resource
             'edit' => Pages\EditForumCategory::route('/{record}/edit'),
         ];
     }
+    public static function canViewAny(): bool
+    {
+        return auth()->guard('admin')->user()->isSuperAdmin();
+    }
 }

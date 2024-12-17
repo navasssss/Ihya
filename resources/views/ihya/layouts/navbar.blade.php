@@ -40,68 +40,11 @@
                                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
                                     alt="avatar" />
                                 <p class="text-gray-600 md:text-sm text-xs mx-2">
-                                    <span class="font-bold">Sara Salah</span> replied on the
-                                    <span class="font-bold text-blue-500">Upload Image</span> article. 2m
+                                    <span class="font-bold">Your account</span> created - Ihya
+
                                 </p>
                             </a>
 
-                            <!-- Notification Item 2 -->
-                            <a href="#" class="flex items-center px-4 py-3 border-b hover:bg-gray-100 -mx-2">
-                                <img class="h-8 w-8 rounded-full object-cover mx-1"
-                                    src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-                                    alt="avatar" />
-                                <p class="text-gray-600 md:text-sm text-xs mx-2">
-                                    <span class="font-bold">Slick Net</span> started following you. 45m
-                                </p>
-                            </a>
-
-                            <!-- Notification Item 3 -->
-                            <a href="#" class="flex items-center px-4 py-3 border-b hover:bg-gray-100 -mx-2">
-                                <img class="h-8 w-8 rounded-full object-cover mx-1"
-                                    src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-                                    alt="avatar" />
-                                <p class="text-gray-600 md:text-sm text-xs mx-2">
-                                    <span class="font-bold">Slick Net</span> started following you. 45m
-                                </p>
-                            </a>
-
-                            <!-- Notification Item 4 -->
-                            <a href="#" class="flex items-center px-4 py-3 border-b hover:bg-gray-100 -mx-2">
-                                <img class="h-8 w-8 rounded-full object-cover mx-1"
-                                    src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-                                    alt="avatar" />
-                                <p class="text-gray-600 md:text-sm text-xs mx-2">
-                                    <span class="font-bold">Slick Net</span> started following you. 45m
-                                </p>
-                            </a>
-
-                            <!-- Notification Item 5 -->
-                            <a href="#" class="flex items-center px-4 py-3 border-b hover:bg-gray-100 -mx-2">
-                                <img class="h-8 w-8 rounded-full object-cover mx-1"
-                                    src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-                                    alt="avatar" />
-                                <p class="text-gray-600 md:text-sm text-xs mx-2">
-                                    <span class="font-bold">Slick Net</span> started following you. 45m
-                                </p>
-                            </a>
-
-                            <!-- Additional notification items (for example purposes) -->
-                            <a href="#" class="flex items-center px-4 py-3 border-b hover:bg-gray-100 -mx-2">
-                                <img class="h-8 w-8 rounded-full object-cover mx-1"
-                                    src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-                                    alt="avatar" />
-                                <p class="text-gray-600 md:text-sm text-xs mx-2">
-                                    <span class="font-bold">Slick Net</span> started following you. 45m
-                                </p>
-                            </a>
-                            <a href="#" class="flex items-center px-4 py-3 border-b hover:bg-gray-100 -mx-2">
-                                <img class="h-8 w-8 rounded-full object-cover mx-1"
-                                    src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-                                    alt="avatar" />
-                                <p class="text-gray-600 md:text-sm text-xs mx-2">
-                                    <span class="font-bold">Slick Net</span> started following you. 45m
-                                </p>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -122,22 +65,21 @@
                         <ul x-show="dropdownOpen"
                             class="absolute right-0 mt-10 py-2 w-48 bg-white rounded-md shadow-xl z-20 border border-collapse">
                             <li>
-                                <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                <a href="{{ route('profile.index') }}"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
                             </li>
                             <li>
-                                <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                                <a href="#" onclick="document.getElementById('logout-form').submit();"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    Log out
+                                </a>
                             </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                            </li>
-                            <li>
-                                <a id="logout" href=""
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log
-                                    out</a>
-                            </li>
+
+
                         </ul>
                     </div>
                 </div>
@@ -163,10 +105,6 @@
                         <a href="{{ route('jobs.index') }}"
                             class="block py-2 px-3  text-lg {{ Route::currentRouteName() == 'jobs.index' ? 'text-[#d36c32] font-semibold' : '' }} "
                             aria-current="page">Jobs</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#d39c32] md:p-0 border-sm:border-b-2 border-gray-200 text-lg">Exams</a>
                     </li>
                     <li>
                         <a href="{{ route('forum_post.index') }}"
@@ -223,24 +161,4 @@
             userMenuButton.setAttribute("aria-expanded", "false");
         }
     });
-
-
-    $(document).ready(function() {
-        $("#logout").click(function(e) {
-            e.preventDefault();
-            $.ajax({
-                url: "{{ route('logout') }}",
-                type: "post",
-                headers: {
-                    'X-CSRF-TOKEN': "{{ csrf_token() }}",
-                },
-                success: function(response) {
-                    localtion.href = "{{ route('login') }}"
-                },
-                error: function() {
-                    console.log("Eda")
-                }
-            })
-        })
-    })
 </script>

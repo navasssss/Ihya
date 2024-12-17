@@ -6,6 +6,7 @@ use App\Models\JobExam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\CheckTrait;
+use App\Models\InterestArea;
 
 class JobExamController extends Controller
 {
@@ -17,8 +18,13 @@ class JobExamController extends Controller
     {
         $user = Auth::user();
         $interestAreas = $user->interestAreas()->select('interest_areas.id', 'name')->get();
+        $interestAreasNotOwnedByUser = InterestArea::whereNotIn('id', $user->interestAreas()->pluck('interest_areas.id'))->get();
+
+        // This will return all the interest areas that the user doesn't have.
+
+
         $qualifications = $user->specialQualifications()->select('special_qualifications.id', 'name')->get();
-        return view('ihya.job_filter', compact('interestAreas', 'qualifications'));
+        return view('ihya.job_filter', compact('interestAreas', 'qualifications', 'interestAreasNotOwnedByUser'));
     }
 
     public function allJobs()

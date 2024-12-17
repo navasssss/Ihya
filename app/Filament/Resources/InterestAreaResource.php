@@ -87,4 +87,8 @@ class InterestAreaResource extends Resource
             // 'edit' => Pages\EditInterestArea::route('/{record}/edit'),
         ];
     }
+    public static function canViewAny(): bool
+    {
+        return auth()->guard('admin')->user()->isSuperAdmin();
+    }
 }

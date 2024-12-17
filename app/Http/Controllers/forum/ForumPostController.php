@@ -31,7 +31,7 @@ class ForumPostController extends Controller
         // return response()->json(['posts' => $posts]);
         $categories = ForumCategory::pluck('name', 'id');
         // return response()->json($posts);
-        return view('ihya.forum.commu', compact('categories', 'posts'));
+        return view('ihya.forum.index', compact('categories', 'posts'));
     }
 
     /**

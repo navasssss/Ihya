@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -88,7 +88,7 @@
 
                 <div class="flex items-center flex-grow place-content-center text-xl">
                     <div class="flex  md:hidden">
-                        <?xml version="1.0" ?>
+
                         <!DOCTYPE svg
                             PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg
                             height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1"

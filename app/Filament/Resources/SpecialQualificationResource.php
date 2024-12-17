@@ -94,4 +94,8 @@ class SpecialQualificationResource extends Resource
             // 'edit' => Pages\EditSpecialQualification::route('/{record}/edit'),
         ];
     }
+    public static function canViewAny(): bool
+    {
+        return auth()->guard('admin')->user()->isSuperAdmin();
+    }
 }

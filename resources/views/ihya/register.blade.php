@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <title>Document</title>
+    <title>Register | Ihya</title>
 </head>
 
 <body class="">

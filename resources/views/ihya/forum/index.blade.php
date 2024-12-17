@@ -1,51 +1,16 @@
-<!DOCTYPE html>
-<html lang="en" class="font-poppins">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    @vite('resources/css/app.css')
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-</head>
-
-<body class="font-poppins">
+@extends('ihya.app')
+@section('content')
     <div class="flex overflow-hidden flex-col bg-white">
-        <!-- <nav class="flex flex-col mt-1.5 w-full bg-white max-md:max-w-full" aria-label="Main Navigation">
-        <div class="flex z-10 flex-wrap gap-10 justify-center place-content-center items-center pr-8 mt-0 mb-0 w-full h-[159px] max-md:pr-5 max-md:mb-2.5 max-md:max-w-full">
-          <div class="flex flex-col self-stretch px-2.5 pb-2.5 my-auto w-[169px]">
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/22f7bc01bb8ba3743ee164e4c5deaa7b8eec658d92ba135b824a494eb7586e7d?placeholderIfAbsent=true&apiKey=e00d3c793b254127971e1d09475396f0" class="object-contain aspect-[1.14] w-[149px]" alt="Company Logo" />
-          </div>
-          <div class="flex flex-wrap gap-8 justify-center items-center self-stretch my-auto text-lg leading-loose text-center text-black min-w-[240px] max-md:max-w-full">
-            <a href="#jobs" class="self-stretch px-7 pb-7 my-auto whitespace-nowrap w-[92px] max-md:px-5 font-medium" tabindex="0">Jobs</a>
-            <a href="#exams" class="self-stretch px-12 pb-7 my-auto whitespace-nowrap w-[149px] max-md:px-5 font-medium" tabindex="0">Exams</a>
-            <a href="#community" class="self-stretch px-6 pb-6 my-auto  whitespace-nowrap w-[149px] max-md:px-5 font-medium" tabindex="0" style="color: #D39C32;">Community</a>
-            <a href="#career" class="self-stretch px-7 pb-7 my-auto w-[149px] max-md:px-5 font-medium" tabindex="0">Set career</a>
-          </div>
-          <div class="flex gap-7 items-center self-stretch my-auto pb-7">
-            <button aria-label="Search" class="focus:outline-none" tabindex="0">
-              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/49a3a3a045b985a55707eba8ab4dc297ee7b92fbfb3a7d0619e2b94e72cb4123?placeholderIfAbsent=true&apiKey=e00d3c793b254127971e1d09475396f0" class="object-contain shrink-0 self-stretch my-auto aspect-[0.86] w-[18px]" alt="" />
-            </button>
-            <button aria-label="User Profile" class="focus:outline-none" tabindex="0">
-              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/46223d1a92a2cbeaad09a6f2b5461340d9763780d92d3d344d809308f236134c?placeholderIfAbsent=true&apiKey=e00d3c793b254127971e1d09475396f0" class="object-contain shrink-0 self-stretch my-auto w-11 aspect-square" alt="" />
-            </button>
-          </div>
-        </div>
-      </nav> -->
 
         <main>
             <div class="px-6 pt-3 "
                 style="background-color: #FFFAD7; clip-path: polygon(
-            0% 0%,
-            49.25% 0%,
-            100% 0%,
-            100% 94.09%,
-            0% 100%
-        );">
+        0% 0%,
+        49.25% 0%,
+        100% 0%,
+        100% 94.09%,
+        0% 100%
+    );">
                 <div class="flex flex-col-reverse md:flex-row ">
                     <div class="flex  ">
                         <img loading="lazy"
@@ -73,25 +38,6 @@
                     <div class="flex gap-5 flex-col-reverse md:flex-row">
                         <div class="flex flex-col w-[70%] max-md:ml-0 max-md:w-full">
                             <div class="flex flex-col w-full place-content-center items-center">
-                                <nav class="flex  font-medium  items-center place-content-start text-black "
-                                    role="navigation" aria-label="Main navigation">
-                                    <div
-                                        class="hidden md:block flex gap-3 w-full items-center text-center  text-xs  mt-10">
-
-                                        <a href="community.html"
-                                            class="hover:text-orange-400 focus:outline-none  focus:ring-orange-400"
-                                            tabindex="0">Community</a>
-                                        <a href="resource.html"
-                                            class= "hover:text-orange-400 focus:outline-none  focus:ring-orange-400"
-                                            tabindex="0">Resources</a>
-                                        <a href="features.html"
-                                            class= "hover:text-orange-400 focus:outline-none  focus:ring-orange-400"
-                                            tabindex="0">Features</a>
-                                        <a href="myproducts.html"
-                                            class=" hover:text-orange-400 focus:outline-none text-nowrap focus:ring-orange-400"
-                                            tabindex="0">My Products</a>
-                                    </div>
-                                </nav>
 
                                 <form id="form1" enctype="multipart/form-data"
                                     class=" flex flex-col py-3 mt-9 w-full bg-white rounded-3xl shadow-lg max-md:max-w-full"
@@ -104,20 +50,21 @@
                                                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/c920a56dc7fa05fd0a0193dea8242e6e4b6a9b992f6f0339e8bdf217f68c6a26?placeholderIfAbsent=true&apiKey=e00d3c793b254127971e1d09475396f0"
                                                 class="object-contain shrink-0 w-11 aspect-square" alt="User avatar" />
                                             <input type="text" class="textbase placeholder:text-lg" id="subject"
-                                                name="title" placeholder="Subject">
+                                                name="title" placeholder="Post title here" style="outline: none">
 
                                             <div class="h-[1px] bg-black w-full mr-16"></div>
 
                                             <label for="postContent" class="sr-only">Write your post</label>
-                                            <textarea id="postContent" class="self-start basis-auto placeholder:text-sm" placeholder="Write something here..."
-                                                aria-label="Write your post" name="content"></textarea>
+                                            <textarea id="postContent" class="textbase placeholder:text-lg" placeholder="Write something here..."
+                                                aria-label="Write your post" name="content" style="outline: none"></textarea>
+                                            <div class="h-[1px] bg-black w-full mr-16"></div>
                                         </div>
                                     </div>
                                     <div
                                         class="w-full overflow-hidden mt-20 max-w-full text-black gap-3 px-5 flex place-content-end">
                                         <div class="flex flex-col text-sm leading-loose ">
                                             <select class="flex gap-7 px-3 py-2  bg-orange-100 rounded-lg"
-                                                aria-label="Select post category" name="category">
+                                                aria-label="Select post category" name="category" style="outline: none">
                                                 <option>Select a Category</option>
                                                 @foreach ($categories as $id => $category)
                                                     <option value="{{ encrypt($id) }}">{{ $category }}</option>
@@ -146,15 +93,6 @@
                                             class="px-4 text-sm py-1 rounded-xl border border-orange-400 border-solid w-[145px] hover:bg-orange-400 hover:text-white transition-colors max-md:px-5">Teaching</button>
                                         <button
                                             class="px-4 text-sm py-1 rounded-xl border border-orange-400 border-solid w-[159px] hover:bg-orange-400 hover:text-white transition-colors">Management</button>
-
-                                        <button
-                                            class="flex text-sm px-4 py-1 rounded-xl place-content-center items-center border border-yellow-700 border-solid hover:bg-yellow-700 hover:text-white transition-colors">
-                                            Show more..
-                                            <img loading="lazy"
-                                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d8b70e6edd85850b472e607d0dce9b6c3f6149d06451cdcdb49b65e65154b6f?placeholderIfAbsent=true&apiKey=e00d3c793b254127971e1d09475396f0"
-                                                class="object-contain shrink-0 aspect-[1.73] w-[15px]"
-                                                alt="" />
-                                        </button>
                                     </div>
 
                                 </div>
@@ -175,8 +113,7 @@
                                                     <p class="text-xs">{{ $post->created_at->diffForHumans() }}</p>
 
                                                 </div>
-                                                <div
-                                                    class="flex items-start text-orange-800  h-auto rounded-lg px-1 py-0">
+                                                <div class="flex items-start text-orange-800  h-auto rounded-lg px-1 py-0">
                                                     <p class="font-semibold flex text-sm text-nowrap">
                                                         {{ $post->category->name }}
                                                     </p>
@@ -186,8 +123,7 @@
                                         </header>
                                         <h2 class="mt-6 text-xl font-semibold leading-snug text-yellow-700">
                                             {{ $post->title }}</h2>
-                                        <p
-                                            class="self-stretch mt-3 text-sm leading-6 text-neutral-600 max-md:max-w-full">
+                                        <p class="self-stretch mt-3 text-sm leading-6 text-neutral-600 max-md:max-w-full">
                                             {{ $post->content }}
                                         </p>
                                         <footer class="flex gap-10 mt-9 text-xl text-center">
@@ -217,10 +153,9 @@
                                         </footer>
                                         <!-- #region comment-->
                                         @foreach ($post->comments as $comment)
-                                            <div class="hidden flex w-full items-start mt-6"
-                                                id="{{ $post->id }}">
+                                            <div class="hidden flex w-full items-start mt-6" id="{{ $post->id }}">
                                                 {{-- <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ceecfcfa45eae15a04c9edc0ba1d6b64ba2c17844a02f0c2f8498d445b9d13a7?placeholderIfAbsent=true&apiKey=e00d3c793b254127971e1d09475396f0"
-                                                    alt=""> --}}
+                                                alt=""> --}}
                                                 <div class="flex-col">
                                                     <div class="flex gap-5 ml-2 text-sm">
                                                         <p>{{ $comment->user->name }}</p>
@@ -235,9 +170,9 @@
                                                     <div>
                                                         <div class="flex gap-2 ml-6">
                                                             <div class="flex gap-2">
-                                                                <p>Like</p> <button
-                                                                    data-comment-id="{{ $comment->id }}"
-                                                                    class="reply-btn">replies</button>
+                                                                <button data-comment-id="{{ $comment->id }}"
+                                                                    class="reply-btn">{{ $comment->children_count }}
+                                                                    replies</button>
                                                             </div>
                                                         </div>
                                                         <div class="flex place-content-end">
@@ -372,8 +307,7 @@
                                     </a>
                                 </nav>
                             </div>
-                            <h2
-                                class="mt-12 mr-72 text-xl font-medium leading-snug text-black max-md:mt-10 max-md:mr-2.5">
+                            <h2 class="mt-12 mr-72 text-xl font-medium leading-snug text-black max-md:mt-10 max-md:mr-2.5">
                                 Features</h2>
 
                             <section class="feature-cards">
@@ -415,81 +349,6 @@
 
 
         </main>
-
-        <footer
-            class="flex flex-col py-10 pr-24 pl-20 mt-20 w-full  min-h-[425px] max-md:px-5 max-md:mt-10 max-md:max-w-full"
-            role="contentinfo" style="background-color: #D39C32;">
-            <div class="flex flex-wrap gap-10 items-center w-full max-md:max-w-full">
-                <img src="assets/ihya footer.png" alt="">
-                <nav class="flex flex-col self-stretch my-auto text-xl leading-none text-white w-[124px]"
-                    aria-label="Useful links">
-                    <h3 class="font-bold">Useful links</h3>
-                    <ul class="flex flex-col mt-5 w-full font-medium">
-                        <li><a href="#login"
-                                class="hover: focus:outline-none hover:cursor-pointer focus:ring-white rounded">Log
-                                in</a></li>
-                        <li class="mt-5"><a href="#jobs"
-                                class="hover: focus:outline-none hover:cursor-pointer focus:ring-white rounded">Jobs</a>
-                        </li>
-                        <li class="mt-5"><a href="#community"
-                                class="hover: focus:outline-none hover:cursor-pointer focus:ring-white rounded">Community</a>
-                        </li>
-                        <li class="mt-5"><a href="#career"
-                                class="hover: focus:outline-none hover:cursor-pointer focus:ring-white rounded">Career</a>
-                        </li>
-                    </ul>
-                </nav>
-                <nav class="flex flex-col self-stretch my-auto text-xl leading-none text-white w-[132px]"
-                    aria-label="Related links">
-                    <h3 class="font-bold">Related links</h3>
-                    <ul class="flex flex-col mt-5 w-28 max-w-full font-medium">
-                        <li><a href="#about"
-                                class="hover: focus:outline-none hover:cursor-pointer focus:ring-white rounded">About
-                                Us</a></li>
-                        <li class="mt-5"><a href="#contact"
-                                class="hover: focus:outline-none hover:cursor-pointer focus:ring-white rounded">Contact
-                                Us</a></li>
-                        <li class="mt-5"><a href="#faq"
-                                class="hover: focus:outline-none hover:cursor-pointer focus:ring-white rounded">FAQ</a>
-                        </li>
-                        <li class="mt-5"><a href="#guide"
-                                class="hover: focus:outline-none hover:cursor-pointer focus:ring-white rounded">Guide</a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="flex flex-col self-stretch my-auto w-[142px]">
-                    <h3 class="text-xl font-medium leading-none text-white">Follow us</h3>
-                    <div class="flex gap-3 items-center mt-2 w-full">
-                        <a href="#social1" class="focus:outline-none hover:cursor-pointer focus:ring-white rounded"
-                            aria-label="Social media link">
-                            <img loading="lazy"
-                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/544444cbdc39572295adc3512609a54b0d7b5f60b627ef7865b9cb9d9271d67b?apiKey=e00d3c793b254127971e1d09475396f0&"
-                                class="object-contain shrink-0 self-stretch my-auto aspect-square w-[35px]"
-                                alt="" />
-                        </a>
-                        <a href="#social2" class="focus:outline-none hover:cursor-pointer focus:ring-white rounded"
-                            aria-label="Social media link">
-                            <img loading="lazy"
-                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/a0e76f8decbc27146d36f6aa02cbcae87cde11aafbc7818fdede1e87b57e1679?apiKey=e00d3c793b254127971e1d09475396f0&"
-                                class="object-contain shrink-0 self-stretch my-auto aspect-square w-[47px]"
-                                alt="" />
-                        </a>
-                        <a href="#social3" class="focus:outline-none hover:cursor-pointer focus:ring-white rounded"
-                            aria-label="Social media link">
-                            <img loading="lazy"
-                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/8bd89289919b9daced6aeaf2252afca7c1881afb3fb10db5e3c623e6f2846100?apiKey=e00d3c793b254127971e1d09475396f0&"
-                                class="object-contain shrink-0 self-stretch my-auto aspect-[1.41] w-[38px]"
-                                alt="" />
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="gap-2.5 self-stretch p-2.5 mt-2.5 w-full text-base font-medium leading-tight text-center text-white max-md:max-w-full">
-                All rights reserved
-                <span class="font-bold">© Ihya 2024</span>
-            </div>
-        </footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -593,7 +452,4 @@
 
         })
     </script>
-
-</body>
-
-</html>
+@endsection

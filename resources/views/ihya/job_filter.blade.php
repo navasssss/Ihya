@@ -3,7 +3,7 @@
     <main class="flex z-10 flex-col px-20 md:px-[2%] py-8 -mt-10 w-full bg-orange-50 max-md:px-5 max-md:max-w-full">
         <div class="w-full max-md:max-w-full">
             <div class="  md:w-full flex gap-5 max-md:flex-col">
-                <aside class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full" role="complementary" aria-label="Job Filters">
+                <aside class=" flex flex-col w-3/12 max-md:ml-0 max-md:w-full" role="complementary" aria-label="Job Filters">
                     <div class="flex flex-col mt-11 max-md:mt-10">
                         <div
                             class="flex flex-col items-start px-8 lg:px-4 pt-7 pb-16 w-full bg-white rounded-3xl shadow-2xl max-md:px-5">
@@ -27,7 +27,8 @@
                                 <legend
                                     class="mt-3.5 text-base font-semibold leading-10 md:leading-tight md:mb-2 md:pt-3  text-black">
                                     Qualification Status</legend>
-                                <div class="flex gap-2 text-sm md:flex-col lg:flex-row font-medium text-center text-black">
+                                <div
+                                    class="flex gap-2 text-sm md:flex-col lg:flex-row font-medium text-start w-full text-black">
 
 
                                     <input type="radio" name="is_qualified" id="qualified" class="hidden peer job-filter"
@@ -58,7 +59,8 @@
                                 <legend
                                     class="mt-3.5 text-base font-semibold leading-10 md:leading-tight md:mb-2 md:pt-3  text-black">
                                     Level</legend>
-                                <div class="flex gap-2 text-sm md:flex-col lg:flex-row font-medium text-center text-black">
+                                <div
+                                    class="flex gap-2 w-full text-sm md:flex-col lg:flex-row font-medium text-center text-black">
 
                                     <div>
 
@@ -86,7 +88,8 @@
                                 <legend
                                     class="mt-3.5 text-base font-semibold leading-10 md:leading-tight md:mb-2 md:pt-3  text-black">
                                     Type</legend>
-                                <div class="flex gap-2 text-sm md:flex-col lg:flex-row font-medium text-center text-black">
+                                <div
+                                    class="flex gap-2 w-full text-sm md:flex-col lg:flex-row font-medium text-center text-black">
 
                                     <div>
 
@@ -160,7 +163,25 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                                <button class="text-sm mt-3 block" style="color: #D39C32;">show more...</button>
+                                <input type="checkbox" id="show-aoi" class="hidden text-sm mt-3 peer">
+                                <label class="peer-checked:*:hidden" for="show-aoi">
+                                    <p style="color: #D39C32;"> show more...</p>
+                                </label>
+                                <div class="hidden peer-checked:block">
+                                    <ul>
+                                        @foreach ($interestAreasNotOwnedByUser as $area)
+                                            <li>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" name="interest_areas[]"
+                                                        class="form-checkbox text-yellow-600 w-5 h-5 mr-3 rounded-xl job-filter"
+                                                        value="{{ $area->id }}">
+                                                    <span class="font-medium text-black">{{ $area->name }}</span>
+                                                </label>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
                             </div>
 
                             <!-- Qualification Type -->
@@ -185,12 +206,7 @@
 
                             </div>
 
-                            <div class="flex justify-center">
-                                <a id="loadMore" href="javascript:void(0)"
-                                    class="bg-gold hover:bg-gold-dark mt-3 text-white-700 font-semibold hover:text-white py-2 px-4 rounded">
-                                    Button
-                                </a>
-                            </div>
+
 
 
                         </div>
@@ -202,6 +218,9 @@
     </main>
     <script>
         $(document).ready(function() {
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
             let jobShowBaseUrl = "{{ route('jobs.show', ['job' => '__ID__']) }}";
             let currentPage = 1;
             let isLastPage = false; // Flag to track if it's the last page
@@ -248,6 +267,9 @@
                                 hideIt()
                             }
 
+
+
+
                             jobsArray.forEach(element => {
                                 const qualifications = element.job_qualifications
                                     .map(q => `${q.name}`)
@@ -264,7 +286,7 @@
                                                             </div>`;
                                 first = first + `<p class="mt-1.5 text-base font-medium leading-6 text-black max-md:mr-2.5">
                                             <span class="font-semibold text-nowrap">Required Qualifications:</span>
-                                            <span>${qualifications}</span>
+                                            <span class="text-xs text-white">${qualifications}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -272,9 +294,9 @@
                             <div class="flex flex-col ml-5 md:ml-0  max-md:ml-0 max-md:w-full">
                                 <div class="flex flex-col  my-auto max-md:mt-10 md:mt-0 ">
                                     <p class="self-end md:self-start text-sm font-medium leading-none text-black max-md:mr-2.5 md:mr-0 md:text-center md:mt-7 md:ml-1  mr-6">
-                                        Vacancies: <span class="font-bold">56</span>
+                                        Vacancies: <span class="font-bold">${getRandomInt(0, 10)}</span>
                                     </p>
-                                    <a href="${jobShowBaseUrl.replace('__ID__', element.job.id)}">
+                                    <a href="${jobShowBaseUrl.replace('__ID__', element.id)}">
                                     <button class="mt-3 px-5 md:px-2  py-1.5 md:text-nowrap text-lg font-semibold text-white rounded-xl bg-[#D39C32] hover:bg-yellow-800  focus:outline-none focus:ring-2 focus:ring-[#dfdcd6]" tabindex="0">Read more</button>
                                     </a>
                                 </div>
@@ -312,11 +334,11 @@
                                                             </div>`;
                                 first = first + `<p class="mt-1.5 text-base font-medium leading-6 text-black max-md:mr-2.5">
                                             <span class="font-semibold text-nowrap">Required Qualifications:</span>
-                                            <span>${qualifications}</span>
+                                            <span class="text-sm">${qualifications}</span>
                                         </p>
                                         <p class="mt-1.5 text-base font-medium leading-6 text-black max-md:mr-2.5">
                                             <span class="font-semibold text-nowrap text-red-600">Missing Qualifications:</span>
-                                            <span>${missingQualifications}</span>
+                                            <span class="text-sm">${missingQualifications}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -324,7 +346,7 @@
                             <div class="flex flex-col ml-5 md:ml-0  max-md:ml-0 max-md:w-full">
                                 <div class="flex flex-col  my-auto max-md:mt-10 md:mt-0 ">
                                     <p class="self-end md:self-start text-sm font-medium leading-none text-black max-md:mr-2.5 md:mr-0 md:text-center md:mt-7 md:ml-1  mr-6">
-                                        Vacancies: <span class="font-bold">56</span>
+                                        Vacancies: <span class="font-bold">${getRandomInt(0, 10)}</span>
                                     </p>
                                    <a href="${jobShowBaseUrl.replace('__ID__', element.job.id)}">
                                     <button class="mt-3 px-5 md:px-2  py-1.5 md:text-nowrap text-lg font-semibold text-white rounded-xl bg-[#D39C32] hover:bg-yellow-800  focus:outline-none focus:ring-2 focus:ring-[#dfdcd6]" tabindex="0">Read more</button>

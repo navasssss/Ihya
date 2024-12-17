@@ -2,6 +2,51 @@
 
 
 @section('content')
+    <style>
+        /* Container styling */
+
+
+        .animation-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Rotating Globe SVG */
+        .globe {
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Text Fade-in Animation */
+        .text-animation h1 {
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
     <script>
         const API_KEY = "AIzaSyAfvOdwOsU7ZMTn6H5-3yI8Kic0vrK9EKg";
         const questions = [{
@@ -454,7 +499,39 @@
                     </div>
             </form>
         </section>
-        <div id="result" class="">
+
+        <div id="loading-animation"
+            class="hidden fixed inset-0 bg-white bg-opacity-95 flex flex-col items-center justify-center z-50">
+            <div class="animation-container">
+                <!-- Rotating Globe SVG -->
+                <svg class="globe" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="120" height="120">
+                    <g transform="translate(0, 0)">
+                        <circle cx="32" cy="32" r="30" fill="#FFFAD7" stroke="#D39C32" stroke-width="4">
+                        </circle>
+                        <path d="M32 2 A30 30 0 1 1 31.999 2.001" fill="none" stroke="#D39C32" stroke-width="3"
+                            stroke-dasharray="180 90" stroke-linecap="round" transform="rotate(0 32 32)">
+                            <animateTransform attributeName="transform" type="rotate" from="0 32 32" to="360 32 32"
+                                dur="2s" repeatCount="indefinite" />
+                        </path>
+                        <path d="M2 32 A30 30 0 1 0 62 32" fill="none" stroke="#D39C32" stroke-width="3"
+                            stroke-dasharray="180 90" stroke-linecap="round" transform="rotate(0 32 32)">
+                            <animateTransform attributeName="transform" type="rotate" from="0 32 32" to="-360 32 32"
+                                dur="2.5s" repeatCount="indefinite" />
+                        </path>
+                    </g>
+                </svg>
+
+                <!-- Text Animation -->
+                <div class="text-animation mt-6 text-center">
+                    <h1 class="text-2xl md:text-3xl font-semibold text-[#D39C32]">
+                        Ihya AI is crafting the best career paths for you
+                    </h1>
+                    <p class="text-lg mt-2 text-gray-700">Please wait while we analyze your interests...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="result" class="hidden">
 
             <div class="flex flex-col mx-6 md:mx-32 my-10 md:my-28">
                 <h1 class="self-center text-2xl md:text-3xl font-semibold leading-none text-center text-black ">
@@ -500,11 +577,11 @@
                     ${q.options
                         .map(
                             (option, optIndex) => `
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="flex items-center">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <input id="radio-${q.id}-${optIndex}" type="radio" name="radio-group-${q.id}" value="${option}" class=" text-[#D39C32] border border-[#D39C32] focus:ring-[#D39C32]" style="width: 18px; height: 18px;" ${responseValue === option ? "checked" : ""} />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <label for="radio-${q.id}-${optIndex}" class="ml-2 text-base text-black">${option}</label>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    `
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="flex items-center">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <input id="radio-${q.id}-${optIndex}" type="radio" name="radio-group-${q.id}" value="${option}" class=" text-[#D39C32] border border-[#D39C32] focus:ring-[#D39C32]" style="width: 18px; height: 18px;" ${responseValue === option ? "checked" : ""} />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <label for="radio-${q.id}-${optIndex}" class="ml-2 text-base text-black">${option}</label>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        `
                         )
                         .join("")}
                 </div>
@@ -562,6 +639,7 @@
         };
 
         function submitAnswers(answers) {
+            showLoadingAnimation();
             const API_URL =
                 "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=" +
                 API_KEY;
@@ -576,56 +654,41 @@
                         role: "user",
                         parts: [{
                             text: `Questions with options: ${questions}, User choosen answers: ${answers} ` +
-                                'Based on the user\'s overall responses, provide five career suggestions in the following JSON format: {"careerSuggestions": [{"career": "Career Name", "reason": "Provide a thoughtful, personalized reason for the suggestion based on the user\'s interests and qualifications, avoiding generic statements.", "description": "A detailed description of the career, relevant to India with a focus on government jobs, growth, and stability.", "whatToDo": "Outline the steps to pursue this career, including education, skills, and certifications.", "trending": "true/false indicating whether the career is trending in India."}]}. Provide only this JSON without any additional text or explanation.',
+                                'Based on the user\'s overall responses, provide five career suggestions in the following JSON format: {"careerSuggestions": [{"career": "Career Name", "reason": "Provide a thoughtful, personalized reason for the suggestion based on the user\'s interests and qualifications, avoiding generic statements.", "description": "A detailed description of the career, relevant to India with a focus on government jobs, growth, and stability.", "whatToDo": "Outline the steps to pursue this career, including education, skills, and certifications.", "trending": "true/false indicating whether the career is trending in India."}]}. Provide only this JSON without any additional text or explanation.PLease provide, i am directly usingit in my website, so dont interrupt the data',
                         }, ],
                     },
                 }),
                 success: function(response) {
+                    hideLoadingAnimation();
                     const careerSuggestions = JSON.parse(
                         response?.candidates[0].content.parts[0].text
                     )?.careerSuggestions;
-                    if (careerSuggestions === null || careerSuggestions.length === 0) {
-                        console.log(response?.candidates[0].content.parts[0].text);
-                    } else {
-
+                    let total = "";
+                    careerSuggestions.forEach((career) => {
                         let element = `<article
                     class="flex flex-wrap gap-5 justify-between items-start px-5 md:px-16 py-8 md:py-12 mt-6 md:mt-12 w-full rounded-3xl shadow-lg bg-[#D39C32] bg-opacity-50">
                     <div class="flex flex-col text-sm md:text-base leading-6 text-black">
                         <h2 class="self-start text-xl md:text-3xl font-semibold leading-none">
-                            UI/UX Designer
+                            ${career.career}
                         </h2>
                         <p class="mt-3">
-                            Making a user interface for any website or app. The employee can achieve 20k, professionals can
-                            achieve 50k+.
+                           ${career.description}
                         </p>
                         <p class="mt-4 md:mt-6 font-medium">
-                            <span class="font-semibold">Required Qualifications:</span>
-                            <span>Complete degree in any subject, Adobe Certified Professional</span>
+                            <span class="font-semibold">How could be?</span>
+                            <span>${career.whatToDo}</span>
                         </p>
-                    </div>
-                    <div class="flex flex-col mt-4">
-                        <p class="ml-2 text-lg md:text-2xl font-medium leading-none text-black">
-                            Vacancies:
-                            <span class="font-bold">56</span>
-                        </p>
-                        <div
-                            class="flex flex-col mt-6 text-base md:text-xl font-semibold leading-10 text-center text-white">
-                            <button type="button"
-                                class="text-white bg-[#D39C32] rounded-xl px-4 py-2 hover:bg-yellow-700 focus:ring-2 focus:ring-[#D39C32] focus:outline-none"
-                                tabindex="0">
-                                Apply for job
-                            </button>
-                        </div>
                     </div>
                 </article>`;
-                        console.log(response?.candidates[0].content.parts[0].text);
-                    }
+                        total = total + element;
+                    })
+                    $("#result").html(total);
 
-                    //   hideLoadingModal();
                 },
                 error: function(error) {
                     console.error("An error occurred:", error);
-                    hideLoadingModal();
+                    hideLoadingAnimation();
+
                 },
             });
         }
@@ -634,5 +697,20 @@
         $(document).ready(function() {
             renderPage();
         })
+
+        function showLoadingAnimation() {
+            const loadingAnimation = document.getElementById('loading-animation');
+            loadingAnimation.classList.remove('hidden');
+        }
+
+        function hideLoadingAnimation() {
+            const loadingAnimation = document.getElementById('loading-animation');
+            loadingAnimation.classList.add('hidden');
+        }
+
+        // Example usage during result generation
+        // Show the animation when generating results
+
+        // Adjust timeout as needed
     </script>
 @endsection
