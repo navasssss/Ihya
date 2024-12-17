@@ -2,8 +2,8 @@
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-                <a href="#" class="flex items-center">
-                    <img src="{{ asset('assets/src/Frame 18.png') }}" class="h-40 me-3" alt="FlowBite Logo" />
+                <a href="#" class="flex items-center place-content-center">
+                    <img src="{{ asset('assets/src/Frame 18.png') }}" class="h-20 md:h-40  me-3" alt="FlowBite Logo" />
                 </a>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -56,7 +56,8 @@
         </div>
         <hr class="my-6 border-white sm:mx-auto  lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between text-center">
-            <span class="text-sm  sm:text-center text-white">© 2023 <a href="#" class="text-black  ">Ihya</a>. All
+            <span class="text-sm  sm:text-center text-white">© <span id="year"> </span> <a href="#"
+                    class="text-black  ">Ihya</a>. All
                 Rights Reserved.
             </span>
             <div class="flex mt-4 sm:justify-center sm:mt-0 items-center place-content-center">
@@ -103,3 +104,7 @@
         </div>
     </div>
 </footer>
+<script>
+    const year = new Date().getFullYear();
+    document.getElementById('year').innerText = year;
+</script>

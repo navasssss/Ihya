@@ -399,7 +399,8 @@
                 <div class="flex gap-5 lg:gap-10 flex-col md:flex-row items-center">
                     <!-- Left Column - Image -->
                     <div class="flex w-full md:w-[45%]">
-                        <img loading="lazy" src="{{ asset('assets/src/career path.svg') }}" alt="Ihya Gateway illustration"
+                        <img style="height: 438px;" loading="lazy" src="{{ asset('assets/src/career path.svg') }}"
+                            alt="Ihya Gateway illustration"
                             class="object-contain w-full max-w-[250px] md:max-w-none mx-auto" />
                     </div>
 
@@ -428,7 +429,8 @@
     <div class="flex overflow-hidden flex-col bg-white">
 
 
-        <section aria-labelledby="skill-section-title" class="flex justify-center items-center mt-20 w-full pb-20">
+        <section id="career-section" aria-labelledby="skill-section-title"
+            class="flex justify-center items-center mt-20 w-full pb-20">
             <form id="questionnaire"
                 class="container mx-auto flex flex-col items-center pt-16 pb-12 px-5 md:px-10 lg:px-20 w-full max-w-4xl rounded-3xl shadow-lg"
                 style="background-color: #FFFAD7;">
@@ -452,136 +454,17 @@
                     </div>
             </form>
         </section>
-        <div id="result" class="hidden">
+        <div id="result" class="">
 
             <div class="flex flex-col mx-6 md:mx-32 my-10 md:my-28">
                 <h1 class="self-center text-2xl md:text-3xl font-semibold leading-none text-center text-black ">
-                    Job selected by <span class="font-semibold  " style="color:#d39c32;"> Ihya AI </span>
+                    Jobs recommended by <span class="font-semibold  " style="color:#d39c32;"> Ihya AI </span>
                 </h1>
 
-                <article
-                    class="flex flex-wrap gap-5 justify-between items-start px-5 md:px-16 py-8 md:py-12 mt-6 md:mt-12 w-full rounded-3xl shadow-lg bg-[#D39C32] bg-opacity-50">
-                    <div class="flex flex-col text-sm md:text-base leading-6 text-black">
-                        <h2 class="self-start text-xl md:text-3xl font-semibold leading-none">
-                            UI/UX Designer
-                        </h2>
-                        <p class="mt-3">
-                            Making a user interface for any website or app. The employee can achieve 20k, professionals can
-                            achieve 50k+.
-                        </p>
-                        <p class="mt-4 md:mt-6 font-medium">
-                            <span class="font-semibold">Required Qualifications:</span>
-                            <span>Complete degree in any subject, Adobe Certified Professional</span>
-                        </p>
-                    </div>
-                    <div class="flex flex-col mt-4">
-                        <p class="ml-2 text-lg md:text-2xl font-medium leading-none text-black">
-                            Vacancies:
-                            <span class="font-bold">56</span>
-                        </p>
-                        <div
-                            class="flex flex-col mt-6 text-base md:text-xl font-semibold leading-10 text-center text-white">
-                            <button type="button"
-                                class="text-white bg-[#D39C32] rounded-xl px-4 py-2 hover:bg-yellow-700 focus:ring-2 focus:ring-[#D39C32] focus:outline-none"
-                                tabindex="0">
-                                Apply for job
-                            </button>
-                        </div>
-                    </div>
-                </article>
+                <div id="parent">
 
-                <article
-                    class="flex flex-wrap gap-5 justify-between items-start px-5 md:px-16 py-8 md:py-12 mt-6 md:mt-10 w-full rounded-3xl shadow-lg bg-[#D39C32] bg-opacity-50">
-                    <div class="flex flex-col text-sm md:text-base leading-6 text-black">
-                        <h2 class="self-start text-xl md:text-3xl font-semibold leading-none">
-                            UI/UX Designer
-                        </h2>
-                        <p class="mt-3">
-                            Making a user interface for any website or app. The employee can achieve 20k, professionals can
-                            achieve 50k+.
-                        </p>
-                        <p class="mt-4 md:mt-6 font-medium">
-                            <span class="font-semibold">Required Qualifications:</span>
-                            <span>Complete degree in any subject, Adobe Certified Professional</span>
-                        </p>
-                    </div>
-                    <div class="flex flex-col mt-4">
-                        <p class="ml-2 text-lg md:text-2xl font-medium leading-none text-black">
-                            Vacancies:
-                            <span class="font-bold">56</span>
-                        </p>
-                        <div
-                            class="flex flex-col mt-6 text-base md:text-xl font-semibold leading-10 text-center text-white">
-                            <button type="button"
-                                class="bg-[#D39C32] rounded-xl px-4 py-2 hover:bg-yellow-700 focus:ring-2 focus:ring-[#D39C32] focus:outline-none"
-                                tabindex="0">
-                                Apply for job
-                            </button>
-                        </div>
-                    </div>
-                </article>
+                </div>
 
-                <article
-                    class="flex flex-wrap gap-5 justify-between items-start px-5 md:px-16 py-8 md:py-12 mt-6 md:mt-10 w-full rounded-3xl shadow-lg bg-[#D39C32] bg-opacity-50">
-                    <div class="flex flex-col text-sm md:text-base leading-6 text-black">
-                        <h2 class="self-start text-xl md:text-3xl font-semibold leading-none">
-                            UI/UX Designer
-                        </h2>
-                        <p class="mt-3">
-                            Making a user interface for any website or app. The employee can achieve 20k, professionals can
-                            achieve 50k+.
-                        </p>
-                        <p class="mt-4 md:mt-6 font-medium">
-                            <span class="font-semibold">Required Qualifications:</span>
-                            <span>Complete degree in any subject, Adobe Certified Professional</span>
-                        </p>
-                    </div>
-                    <div class="flex flex-col mt-4">
-                        <p class="ml-2 text-lg md:text-2xl font-medium leading-none text-black">
-                            Vacancies:
-                            <span class="font-bold">56</span>
-                        </p>
-                        <div
-                            class="flex flex-col mt-6 text-base md:text-xl font-semibold leading-10 text-center text-white">
-                            <button type="button"
-                                class="bg-[#D39C32] rounded-xl px-4 py-2 hover:bg-yellow-700 focus:ring-2 focus:ring-[#D39C32] focus:outline-none"
-                                tabindex="0">
-                                Apply for job
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <article
-                    class="flex flex-wrap gap-5 justify-between items-start px-5 md:px-16 py-8 md:py-12 mt-6 md:mt-10 w-full rounded-3xl shadow-lg bg-[#D39C32] bg-opacity-50">
-                    <div class="flex flex-col text-sm md:text-base leading-6 text-black">
-                        <h2 class="self-start text-xl md:text-3xl font-semibold leading-none">
-                            UI/UX Designer
-                        </h2>
-                        <p class="mt-3">
-                            Making a user interface for any website or app. The employee can achieve 20k, professionals can
-                            achieve 50k+.
-                        </p>
-                        <p class="mt-4 md:mt-6 font-medium">
-                            <span class="font-semibold">Required Qualifications:</span>
-                            <span>Complete degree in any subject, Adobe Certified Professional</span>
-                        </p>
-                    </div>
-                    <div class="flex flex-col mt-4">
-                        <p class="ml-2 text-lg md:text-2xl font-medium leading-none text-black">
-                            Vacancies:
-                            <span class="font-bold">56</span>
-                        </p>
-                        <div
-                            class="flex flex-col mt-6 text-base md:text-xl font-semibold leading-10 text-center text-white">
-                            <button type="button"
-                                class="bg-[#D39C32] rounded-xl px-4 py-2 hover:bg-yellow-700 focus:ring-2 focus:ring-[#D39C32] focus:outline-none"
-                                tabindex="0">
-                                Apply for job
-                            </button>
-                        </div>
-                    </div>
-                </article>
             </div>
         </div>
 
@@ -609,19 +492,19 @@
                 const responseValue = responses[q.id] || null;
 
                 fieldset.innerHTML = `
-                <legend class="text-xl md:text-2xl font-semibold leading-none text-black mb-4">
+                <legend class="text-lg md:text-xl font-semibold leading-none text-black mb-4">
                     Q.${startIndex + index + 1}/${questions.length}
                 </legend>
-                <p class="text-lg md:text-xl leading-relaxed text-black mb-6">${q.question}</p>
+                <p class="text-lg md:text-lg leading-relaxed text-black mb-6">${q.question}</p>
                 <div class="flex flex-col space-y-4">
                     ${q.options
                         .map(
                             (option, optIndex) => `
-                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="flex items-center">
-                                                                                                                                                                                                                                                                                                                                                                                                                                    <input id="radio-${q.id}-${optIndex}" type="radio" name="radio-group-${q.id}" value="${option}" class="w-5 h-5 text-[#D39C32] border-[#D39C32] focus:ring-[#D39C32]" ${responseValue === option ? "checked" : ""} />
-                                                                                                                                                                                                                                                                                                                                                                                                                                    <label for="radio-${q.id}-${optIndex}" class="ml-2 text-lg text-black">${option}</label>
-                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                            `
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="flex items-center">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <input id="radio-${q.id}-${optIndex}" type="radio" name="radio-group-${q.id}" value="${option}" class=" text-[#D39C32] border border-[#D39C32] focus:ring-[#D39C32]" style="width: 18px; height: 18px;" ${responseValue === option ? "checked" : ""} />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <label for="radio-${q.id}-${optIndex}" class="ml-2 text-base text-black">${option}</label>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    `
                         )
                         .join("")}
                 </div>
@@ -650,13 +533,31 @@
             // Handle form submission on last page
             if (direction === "next" && currentPage === Math.ceil(questions.length / questionsPerPage) - 1) {
                 console.log(responses);
-                alert("Form submitted! Check console for results.");
+                // alert("Form submitted! Check console for results.");
                 submitAnswers(responses);
+                $('#career-section').hide()
+                $("#result").show()
+                const result = document.getElementById("result");
+                if (result) {
+                    result.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+
                 return;
             }
 
             // Update current page
             currentPage += direction === "next" ? 1 : -1;
+
+            const sectionTitle = document.getElementById("skill-section-title");
+            if (sectionTitle) {
+                sectionTitle.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
             renderPage();
         };
 
@@ -683,11 +584,40 @@
                     const careerSuggestions = JSON.parse(
                         response?.candidates[0].content.parts[0].text
                     )?.careerSuggestions;
-                    $("#result").show()
                     if (careerSuggestions === null || careerSuggestions.length === 0) {
                         console.log(response?.candidates[0].content.parts[0].text);
                     } else {
-                        // showCareerSuggestionsInModal(careerSuggestions);
+
+                        let element = `<article
+                    class="flex flex-wrap gap-5 justify-between items-start px-5 md:px-16 py-8 md:py-12 mt-6 md:mt-12 w-full rounded-3xl shadow-lg bg-[#D39C32] bg-opacity-50">
+                    <div class="flex flex-col text-sm md:text-base leading-6 text-black">
+                        <h2 class="self-start text-xl md:text-3xl font-semibold leading-none">
+                            UI/UX Designer
+                        </h2>
+                        <p class="mt-3">
+                            Making a user interface for any website or app. The employee can achieve 20k, professionals can
+                            achieve 50k+.
+                        </p>
+                        <p class="mt-4 md:mt-6 font-medium">
+                            <span class="font-semibold">Required Qualifications:</span>
+                            <span>Complete degree in any subject, Adobe Certified Professional</span>
+                        </p>
+                    </div>
+                    <div class="flex flex-col mt-4">
+                        <p class="ml-2 text-lg md:text-2xl font-medium leading-none text-black">
+                            Vacancies:
+                            <span class="font-bold">56</span>
+                        </p>
+                        <div
+                            class="flex flex-col mt-6 text-base md:text-xl font-semibold leading-10 text-center text-white">
+                            <button type="button"
+                                class="text-white bg-[#D39C32] rounded-xl px-4 py-2 hover:bg-yellow-700 focus:ring-2 focus:ring-[#D39C32] focus:outline-none"
+                                tabindex="0">
+                                Apply for job
+                            </button>
+                        </div>
+                    </div>
+                </article>`;
                         console.log(response?.candidates[0].content.parts[0].text);
                     }
 

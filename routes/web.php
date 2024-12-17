@@ -22,9 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('ihya.first');
 });
-Route::get('/homee', function () {
-    return view('ihya.index');
-})->name('homee');
+
 
 
 Route::get('/import', function () {
@@ -49,14 +47,17 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', [RegisterController::class, 'login'])->name('login');
     Route::post('/login/authenticate', [RegisterController::class, 'loginAuthenticate'])->name('login.authenticate');
     Route::get('/cutti', [QualificationController::class, 'cutti'])->name('cutti');
+    Route::get('/homee', function () {
+        return view('ihya.index');
+    })->name('homee');
 });
 
 
 Route::middleware(['auth', 'verification'])->group(function () {
     // Home page
-    Route::get('/dashboard', function () {
-        return view('welcome');
-    })->name('home');
+    // Route::get('/dashboard', function () {
+    //     return view('welcome');
+    // })->name('home');
     // Interest Area pages
     Route::resource('interest', InterestAreaController::class);
     Route::resource('profile', ProfileController::class);
@@ -72,10 +73,10 @@ Route::middleware(['auth', 'verification'])->group(function () {
     Route::get('/alljobs', [JobExamController::class, 'allJobs'])->name('allJobs');
     Route::get('/career', function () {
         return view('ihya.career_path.index');
-    });
-    Route::get('/logged/home', function () {
+    })->name('career');
+    Route::get('/dashboard', function () {
         return view('ihya.logged_home');
-    })->name('loggedHome');
+    })->name('home');
 });
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [RegisterController::class, 'logout'])->name('logout');

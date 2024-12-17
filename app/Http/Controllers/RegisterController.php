@@ -27,7 +27,7 @@ class RegisterController extends Controller
 
     public function login()
     {
-        return view('register.login');
+        return view('ihya.login');
     }
     public function loginAuthenticate(Request $request)
     {

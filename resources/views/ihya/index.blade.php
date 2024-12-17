@@ -5,22 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    {{-- <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" /> --}}
-    <title>Ihya</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <title>Document</title>
 </head>
 
-<body>
+<style>
+    .body-lines {
+        background-image: url("../src/lines\ 1.svg");
 
-    <section class=" grid-flow-row sec1">
+    }
+
+    .down {
+        background-image: url("../src/page1.svg");
+    }
+
+    .sec1 {
+        background-image: url("../src/lines\ 1.svg");
+
+    }
+
+    .foot-img {
+        background-image: url("{{ asset('assets/src/foot\ image.svg') }}");
+    }
+
+    .img-bg {
+        background-image: url("{{ asset('assets/src/Rectangle\ 2.svg') }}");
+    }
+
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .custom-clip {
+        clip-path: polygon(0 0, 50.2% 7.2%, 100% 12.3%, 100% 94%, 0 100%);
+    }
+
+    .main-clip {
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+
+    .profile-bg {
+        background-image: url("{{ asset('assets/src/') }}");
+    }
+
+    .mobile-svg {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 76.3%, 87.64% 76.94%, 74.2% 77.72%,
+                60.78% 78.5%, 47.39% 79.28%, 34.03% 80.06%, 20.61% 80.84%,
+                7.22% 81.62%, 0% 81.94%, 0% 81.94%, 0% 0%);
+        background-color: bisque;
+    }
+</style>
+
+<body class="">
+
+    <section class="grid grid-flow-row w-full sec1">
         <nav class="flex flex-col">
-            <div class="grid grid-cols-3 px-36 pt-5">
+            <div class="grid grid-cols-3 md:px-36 px-8 pt-5">
                 <div class="flex place-content-center">
-                    <img src="{{ asset('assets/src/IHYA logo png 1.png') }}" alt="IHYA Logo" class="max-h-20">
+                    <img src="{{ asset('assets/src/IHYA logo png 1.png') }}" alt="IHYA Logo"
+                        class="max-h-20 md:h-auto h-10">
                 </div>
                 <div class="flex place-content-center items-center">
 
-                    <div class="flex flex-grow place-content-around">
+                    <div class="hidden  md:flex flex-grow place-content-around">
                         <div class="flex flex-col items-center justify-center "><img class="max-h-[34px] w-auto"
                                 src="{{ asset('assets/src/community.svg') }}"  alt="Forum">
                             <p class="text-center text-[10px]">Community</p>
@@ -38,13 +86,25 @@
 
                 </div>
 
-                <div class="flex items-center flex-grow place-content-between px-16 text-xl">
-                    <a href="{{ route('register.index') }}"
-                        class="bg-gold rounded-xl px-4 text-white text-xl font-semibold text-nowrap mx-2 h-[40px]">Join
-                        Now</a>
-                    <a href="{{ route('login') }}"
-                        class="bg-gold-bg border-gold border-2 rounded-xl px-4 mx-2 h-[40px] text-xl font-semibold text-nowrap">Sign
-                        in</a>
+                <div class="flex items-center flex-grow place-content-center text-xl">
+                    <div class="flex  md:hidden">
+                        <?xml version="1.0" ?>
+                        <!DOCTYPE svg
+                            PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg
+                            height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1"
+                            viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path
+                                d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" />
+                        </svg>
+                    </div>
+
+                    <button
+                        class="hidden md:block bg-gold rounded-xl px-4 text-white text-xl font-semibold text-nowrap mx-2 h-[40px]">Join
+                        Now</button>
+                    <button
+                        class="hidden md:block bg-gold-bg border-gold border-2 rounded-xl px-4 mx-2 h-[40px] text-xl font-semibold text-nowrap">Sign
+                        in</button>
 
                 </div>
             </div>
@@ -56,93 +116,114 @@
 
         <!---------------------------------------------------------------------->
 
-        <div class="grid grid-cols-2 mt-16">
+        <div class="grid md:grid-cols-2 w-full mt-16 md:mb-8">
 
 
-            <div class="flex flex-col place-content-center items-center">
+            <div class="flex flex-col place-content-center items-center mb-6 md:pb-32 w-full">
                 <div>
-                    <h2 class="font-semibold text-[40px] mb-2">Welcome to <span class="text-[#D39C32] ">Ihya,</span>
+                    <h2 class="font-semibold text-center md:text-4xl text-3xl mb-2">Welcome to <span
+                            class="text-[#D39C32] ">Ihya,</span>
                     </h2>
-                    <p>Join us and be part of this inspiring journey <br>
+                    <p class="text-sm md:text-base px-8 text-center md:px-0">Join us and be part of this inspiring
+                        journey <br class="hidden md:block">
                         toward excellence and shared success!</p>
                 </div>
                 <div>
-                    <div class="mt-12 flex flex-col text-center w-[400px]"><button
-                            class="bg-gold-bg text-2xl rounded-full py-1 border-gold border-solid border-2 px-24">Proceed
+                    <div class="mt-12 flex flex-col text-center md:w-full"><button
+                            class="bg-gold-bg-dark md:text-2xl text-lg rounded-full py-1 border-gold border-solid border-2 md:px-18 px-1">Proceed
                             to Join</button>
-                        <p class="text-nowrap text-sm mt-2">Already have an account? <a href="#">Sign in</a></p>
+                        <p class="text-nowrap text-sm mt-2">Already have an account? <a href="#"
+                                class="text-gold-dark">Sign in</a></p>
                     </div>
                 </div>
             </div>
-            <div class="flex place-content-end">
-                <img src="{{ asset('assets/src/side image.svg') }}" alt="">
+            <div class="flex place-content-end ">
+                <img src="{{ asset('assets/src/side image.svg') }}" alt="" class="">
             </div>
         </div>
 
 
     </section>
 
-    <section class=" mb-6">
-        <div class="h-56 relative ">
-            <div
-                class="h-64 bottom-0 bg-[#FFFAD7] custom-clip absolute w-full grid grid-cols-4 place-items-center place-content-center px-24 ">
+    <section class=" w-full overflow-clip flex flex-col items-center mt-14 max-md:mt-10 md:mb-148"
+        aria-labelledby="browse-section">
+        <h2 id="browse-section" class="text-4xl font-semibold text-black mb-3">Browse your job by your interest</h2>
+        <p class="mt-2 text-xl leading-6 text-center text-black mb-16">
+            Explore the opportunities by Industry
+            <br />
+            Find your ideal role
+        </p>
 
-                <div class="flex place-content-center">
-                    <div
-                        class="flex flex-col place-content-center items-center h-[150px] w-[150px]  rounded-full border-gold-dark border-2">
-                        <h1 class="text-[40px] font-semibold">1500+</h1>
-                        <p class="text-2xl font-semibold">Jobs</p>
-                    </div>
+        <div class="flex flex-row gap-5 text-center mb-16" role="region" aria-label="Career Options">
+            <div class="flex flex-col place-content-center px-20 py-12 text-center bg-white shadow-2xl rounded-[45px] max-sm:hidden"
+                role="article" tabindex="0">
+                <div class="content-center text-4xl font-semibold text-orange-400">
+                    Teacher
                 </div>
-
-                <div class="flex place-content-center">
-                    <div
-                        class="flex flex-col place-content-center items-center h-[150px] w-[150px]  rounded-full border-gold-dark border-2">
-                        <h1>150+</h1>
-                        <p>Employed</p>
-                    </div>
+                <div class="mt-8 text-xl leading-7 text-black w-[262px]">
+                    Responsible for Planning, designing, and overseeing construction projects
                 </div>
-
-                <div class="flex place-content-center">
-                    <div
-                        class="flex flex-col place-content-center items-center h-[150px] w-[150px]  rounded-full border-gold-dark border-2">
-                        <h1>500+</h1>
-                        <p>Mahall</p>
-                    </div>
-                </div>
-
-                <div class="flex place-content-center">
-                    <div
-                        class="flex flex-col place-content-center items-center h-[150px] w-[150px]  rounded-full border-gold-dark border-2">
-                        <h1>5000+</h1>
-                        <p>Users</p>
-                    </div>
-                </div>
-
             </div>
-        </div>
+            <div class="flex flex-col justify-start items-center place-content-center px-20 py-12 bg-white shadow-2xl rounded-[45px] max-md:px-5 max-sm:hidden"
+                role="article" tabindex="0">
+                <div class="self-center text-4xl font-semibold text-orange-400">
+                    Professor
+                </div>
+                <div class="mt-8 text-xl leading-8 text-black w-[262px]">
+                    Responsible for Planning, designing, and overseeing construction projects
+                </div>
+            </div>
+            <div class="flex flex-col justify-start items-center place-content-center px-20 py-12 shadow-2xl rounded-[45px] max-md:px-5 max-sm:hidden"
+                style="background-color: #D39C32;" role="article" tabindex="0">
+                <div class="self-center text-4xl font-semibold text-white">
+                    Professor
+                </div>
+                <div class="mt-8 text-xl leading-8 text-white w-[262px]">
+                    Responsible for Planning, designing, and overseeing construction projects
+                </div>
+            </div>
+            <div class="flex flex-col justify-start items-center place-content-center px-20 py-12 bg-white shadow-2xl rounded-[45px] max-md:px-5 max-sm:hidden"
+                role="article" tabindex="0">
+                <div class="self-center text-4xl font-semibold text-orange-400">
+                    Professor
+                </div>
+                <div class="mt-8 text-xl leading-8 text-black w-[262px]">
+                    Responsible for Planning, designing, and overseeing construction projects
+                </div>
+            </div>
+            <div class="flex flex-col justify-start items-center place-content-center px-20 py-12 bg-white shadow-2xl rounded-[45px] max-md:px-5 max-sm:hidden"
+                role="article" tabindex="0">
+                <div class="self-center text-4xl font-semibold text-orange-400">
+                    Professor
+                </div>
+                <div class="mt-8 text-xl leading-8 text-black w-[262px]">
+                    Responsible for Planning, designing, and overseeing construction projects
+                </div>
+            </div>
 
+        </div>
     </section>
 
 
     <section>
-        <div class="bg-gold-bg mx-52 mt-14 mb-14 flex items-center rounded-3xl relative">
+        <div class=" bg-gold-bg md:mx-52 mx-10 my-28 md:mb-14 flex items-center rounded-3xl relative">
             <div id="default-carousel" class="relative w-full" data-carousel="static">
                 <!-- Carousel wrapper -->
                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                     <!-- 1 -->
 
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <div class="grid grid-cols-2 px-8 h-full">
-                            <div class="flex flex-col p-10 place-content-center items-center ">
-                                <h1 class="text-3xl">Simple to use and
+                        <div class="grid md:grid-cols-2 grid-cols-1 px-8 h-full">
+                            <div class="flex flex-col md:p-10 p-4 place-content-center items-center ">
+                                <h1 class="md:text-3xl text-2xl">Simple to use and
                                     manage with easy access</h1>
                                 <p class="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting
                                     industry. Lorem Ipsum has been the industry's standard dummy text ever since the
                                     1500s,</p>
                             </div>
                             <div class="flex h-full m-5">
-                                <img src="{{ asset('assets/src/Person using phone.svg') }}" alt="">
+                                <img src="{{ asset('assets/src/Person using phone.svg') }}" alt=""
+                                    class="md:block hidden">
                             </div>
                         </div>
 
@@ -152,31 +233,31 @@
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                         <img src="{{ asset('assets/src/150 employ.svg') }}"
                             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="...">
+                            alt="">
                     </div>
                     <!-- Item 2 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                         <img src="{{ asset('assets/src/1500+ jobs .svg') }}"
                             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="...">
+                            alt="">
                     </div>
                     <!-- Item 3 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset('assets/srcimages/carousel/carousel-3.svg') }}"
+                        <img src="/docs/images/carousel/carousel-3.svg"
                             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="...">
+                            alt="">
                     </div>
                     <!-- Item 4 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset('assets/srcimages/carousel/carousel-4.svg') }}"
+                        <img src="/docs/images/carousel/carousel-4.svg"
                             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="...">
+                            alt="">
                     </div>
                     <!-- Item 5 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset('assets/srcimages/carousel/carousel-5.svg') }}"
+                        <img src="/docs/images/carousel/carousel-5.svg"
                             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="...">
+                            alt="">
                     </div>
                 </div>
                 <!-- Slider indicators -->
@@ -194,7 +275,7 @@
                 </div>
                 <!-- Slider controls -->
                 <button type="button"
-                    class="absolute -left-4 top-0 translate-x-4 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    class="absolute  top-0  start-0 z-30 flex items-center justify-center h-full px-1 cursor-pointer group focus:outline-none"
                     data-carousel-prev>
                     <span
                         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
@@ -204,7 +285,7 @@
                     </span>
                 </button>
                 <button type="button"
-                    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-1 cursor-pointer group focus:outline-none"
                     data-carousel-next>
                     <span
                         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
@@ -217,35 +298,45 @@
 
         </div>
     </section>
-    <section class="bg-[#D9D9D9] py-7 mt-10">
-        <div class="m-24 grid grid-cols-6 mx-48  ">
-            <div class="text-center col-span-2 ">
-                <h1 class="font-semibold text-2xl"><span class="text-nowrap">Find perfect job</span><br>
+
+
+
+    <section class="  bg-[#D9D9D9] py-7 mt-10 h-80 px-6">
+        <div class=" flex place-content-center items-center h-full ">
+
+
+
+
+            <div class="ml-48 text-center flex place-content-center items-center ">
+                <h1 class="font-semibold md:text-3xl text-2xl mb-4"><span class="text-nowrap">Find perfect
+                        job</span><br>
                     <span class="text-nowrap">according to you</span>
                 </h1>
             </div>
-            <div class="flex flex-wrap gap-3 col-span-4 ml-10 pr-10">
+            <div class="flex flex-wrap place-content-center md:gap-2  pl-6 ">
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] px-8 py-2 text-xl font-semibold font-Calibri text-nowrap mx-1">Engineering</button>
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">
+                    Engineering</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] px-8 py-2 text-xl font-semibold font-Calibri text-nowrap mx-1">Medical</button>
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Medical</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] px-8 py-2 text-xl font-semibold font-Calibri text-nowrap mx-1">Any
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Any
                     degree</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] px-8 py-2 text-xl font-semibold font-Calibri text-nowrap mx-1">Pharmacy</button>
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Pharmacy</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] px-8 py-2 text-xl font-semibold font-Calibri text-nowrap mx-1">Agriculture</button>
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Agriculture</button><br
+                    class="md:block hidden">
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] px-8 py-2 text-xl font-semibold font-Calibri text-nowrap mx-1">Architecture</button>
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Architecture</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] px-8 py-2 text-xl font-semibold font-Calibri text-nowrap mx-1">Hotel
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-8 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Hotel
                     Management</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] px-5 py-2 text-xl font-semibold font-Calibri text-nowrap mx-1">Sports
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-5 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Sports
                     quota</button>
                 <button
-                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] px-5 py-2 text-xl font-semibold font-Calibri text-nowrap mx-1">Teaching</button>
+                    class="bg-[#F2E4CA] rounded-full border-2 border-solid border-[#D39C32] md:px-5 px-6 py-1 md:text-lg text-sm font-medium font-Calibri text-nowrap mx-1 md:my-0 my-1">Teaching</button>
             </div>
         </div>
     </section>
@@ -254,15 +345,15 @@
         <div class="m-10 flex flex-col items-center place-content-center font-semibold">
             <h1 class=" m-5 text-3xl justify-center text-center">Watch video and <br>
                 catch more</h1>
-            <div class="flex relative px-8">
+            <div class="flex relative md:px-8 px-2">
                 <img src="{{ asset('assets/src/image-border.svg') }}" alt=""
                     class="w-full absolute left-0 top-0">
                 <img src="{{ asset('assets/src/image-border.svg') }}" alt=""
                     class="w-full absolute left-0 bottom-0 rotate-180">
 
-                <iframe class="rounded-2xl inset-0 my-5 " width="560" height="315"
-                    src="assets/src//www.youtube.com/embed/OY2x0TyKzIQ?si=IbHWx65Q-0nTiX6C"
-                    title="YouTube video player" frameborder="0"
+                <iframe class=" mx-5 rounded-2xl md:w-auto aspect-video md:h-96 inset-0 my-5 "
+                    src="https://www.youtube.com/embed/OY2x0TyKzIQ?si=IbHWx65Q-0nTiX6C" title="YouTube video player"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
@@ -270,11 +361,7 @@
 
 
 
-            <!-- <div class="relative w-5/12 flex place-content-center before:content-[url('../src/image-border.svg')]">
-            <img src="assets/src/image-border.svg" alt="" class="w-full absolute top-0">
-            <img src="assets/src/image-border.svg" alt="" class="w-full bottom-0 absolute rotate-180">
-            <iframe class="rounded-2xl inset-0 my-5 " width="560" height="315" src="assets/src//www.youtube.com/embed/OY2x0TyKzIQ?si=IbHWx65Q-0nTiX6C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div> -->
+
         </div>
 
 
@@ -283,19 +370,19 @@
     <section class="flex w-full place-content-center foot-img h-[430px] pt-20">
 
         <div class="flex place-content-center w-1/2">
-            <h1 class="text-left text-2xl font-semibold">Let's gather for the <br>
+            <h1 class="text-left md:text-2xl text-xl ml-6 font-semibold">Let's gather for the <br>
                 better future of Ummah...</h1>
         </div>
         <div class="flex place-content-center items-start w-1/2">
             <button
-                class="bg-[#D39C32] rounded-xl px-8 py-2 text-xl font-semibold font-Calibri text-nowrap text-white">Get
+                class="bg-[#D39C32] rounded-xl md:px-8 px-2 py-2 text-xl font-semibold font-Calibri text-nowrap text-white">Get
                 Started</button>
         </div>
     </section>
 
-    <footer class="bg-[#D39C32] flex place-content-around px-[90px] pt-16 text-white">
-        <div class="flex place-content-center text-center flex-col"><img
-                src="{{ asset('assets/src/IHYA logo white 1.svg') }}" class="w-96" alt="IHYA Logo">
+    <footer class=" bg-[#D39C32] flex place-content-around  pt-16 text-white">
+        <div class="flex place-content-center text-center flex-col">.
+            <img src="{{ asset('assets/src/IHYA logo white 1.svg') }}" class="w-96" alt="IHYA Logo">
             <p>Government Service Assistance for <br>
                 Muslim Community Development</p>
         </div>
@@ -356,7 +443,7 @@
 
 
 
-    <script src="cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 
 </body>
 

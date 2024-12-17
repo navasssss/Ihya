@@ -57,7 +57,7 @@
 
         </div>
     </section>
-    <img loading="lazy" src="assets/map homepage.svg"
+    <img loading="lazy" src="{{ asset('assets/src/map homepage.svg') }}"
         class="object-contain mt-40 w-full aspect-[3.75] max-md:mt-10 max-md:max-w-full"
         alt="Job categories illustration" />
 @endsection

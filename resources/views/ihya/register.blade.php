@@ -18,16 +18,16 @@
 
             <h1 class="text-3xl my-6 font-semibold">Enter your basic details</h1>
             <form action="#"
-                class="bg-gold-bg  flex flex-col items-center place-content-center w-[600px] rounded-xl my-4 p5">
-                <ul class="my-6">
+                class="bg-[#FFFAD7] flex flex-col items-center place-content-center rounded-xl px-16 p-5 md:w-[50%] lg:w-[35%] xl:[15%]">
+                <ul class=" flex flex-col place-content-center items-center w-full">
                     <li class="my-2">
                         <label class="ml-2 block">Email</label>
-                        <input class="bg-silver my-1 w-full border-[#AC802D] border-solid border-2 rounded-xl p-2 px-4"
+                        <input class="bg-[#D9D9D9] my-1 border-[#AC802D] border-solid border-2 rounded-xl px-4 py-2 "
                             type="email" name="" id="" placeholder="Enter your valid email id">
                     </li>
                     <li class="my-2">
                         <label class="ml-2 block">Address</label>
-                        <input class="bg-silver w-full my-1 border-[#AC802D] border-solid border-2 rounded-xl p-4 "
+                        <input class="bg-silver w-full my-1 border-[#AC802D] border-solid border-2 rounded-lg p-4 "
                             type="email" name="" id="" placeholder="Enter your valid email id">
                     </li>
 

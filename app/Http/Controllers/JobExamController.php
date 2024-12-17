@@ -23,7 +23,7 @@ class JobExamController extends Controller
 
     public function allJobs()
     {
-        $jobs = JobExam::with(['interestArea', 'jobQualifications'])->get();
+        $jobs = JobExam::get();
         return response()->json($jobs);
     }
     /**

@@ -41,37 +41,37 @@
             <h1 class="text-3xl my-2 font-semibold text-center mb-5">Start with creating an account</h1>
             <p class="pb-2">Already have an account? <a href="#" class="text-gold">Sign in</a></p>
             <form method="post" id="form"
-                class="bg-[#FFFAD7] flex flex-col items-center place-content-center w-[500px] rounded-xl p-5">
+                class="bg-[#FFFAD7] flex flex-col items-center place-content-center rounded-xl px-16 p-5 md:w-[50%] lg:w-[35%] xl:[15%]">
                 <ul class=" flex flex-col place-content-center items-center">
                     <li class="my-1">
                         <label class="ml-2">Name</label><br>
                         <input
-                            class="bg-[#D9D9D9] my-1 border-[#AC802D] border-solid border-2 rounded-md px-4 py-3 w-96"
+                            class="bg-[#D9D9D9] my-1 border-[#AC802D] border-solid border-2 rounded-xl px-4 py-2 w-80"
                             type="text" name="name" id="" placeholder="Enter your full name">
                     </li>
                     <li class="my-1">
                         <label class="ml-2">Email</label><br>
                         <input
-                            class="bg-[#D9D9D9] my-1 border-[#AC802D] border-solid border-2 rounded-md px-4 py-3 w-96"
+                            class="bg-[#D9D9D9] my-1 border-[#AC802D] border-solid border-2 rounded-xl px-4 py-2 w-80"
                             type="email" name="email" id="" placeholder="Enter your valid email id">
                     </li>
                     <li class="my-1">
                         <label class="ml-2">Phone number</label><br>
                         <input
-                            class="bg-[#D9D9D9]  my-1 border-[#AC802D] border-solid border-2 rounded-md px-4 py-3 w-96"
+                            class="bg-[#D9D9D9]  my-1 border-[#AC802D] border-solid border-2 rounded-xl px-4 py-2 w-80"
                             type="tel" name="phone_number" id=""
                             placeholder="Phone number with country code">
                     </li>
                     <li class="my-1">
                         <label class="ml-2">Create Password</label><br>
                         <input
-                            class="bg-[#D9D9D9]  my-1 border-[#AC802D] border-solid border-2 rounded-md px-4 py-3 w-96"
+                            class="bg-[#D9D9D9]  my-1 border-[#AC802D] border-solid border-2 rounded-xl px-4 py-2 w-80"
                             type="password" name="password" id="" placeholder="Create a strong password">
                     </li>
                     <li class="my-1">
                         <label class="ml-2">Confirm Password</label><br>
                         <input
-                            class="bg-[#D9D9D9]  my-1 border-[#AC802D] border-solid border-2 rounded-md px-4 py-3 w-96"
+                            class="bg-[#D9D9D9]  my-1 border-[#AC802D] border-solid border-2 rounded-xl px-4 py-2 w-80"
                             type="password" name="password_confirmation" id=""
                             placeholder="Create a strong password">
                     </li>
