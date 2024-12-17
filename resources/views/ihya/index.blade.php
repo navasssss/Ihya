@@ -39,12 +39,12 @@
                 </div>
 
                 <div class="flex items-center flex-grow place-content-between px-16 text-xl">
-                    <button
+                    <a href="{{ route('register.index') }}"
                         class="bg-gold rounded-xl px-4 text-white text-xl font-semibold text-nowrap mx-2 h-[40px]">Join
-                        Now</button>
-                    <button
+                        Now</a>
+                    <a href="{{ route('login') }}"
                         class="bg-gold-bg border-gold border-2 rounded-xl px-4 mx-2 h-[40px] text-xl font-semibold text-nowrap">Sign
-                        in</button>
+                        in</a>
 
                 </div>
             </div>

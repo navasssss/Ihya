@@ -20,8 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('ihya.index');
+    return view('ihya.first');
 });
+Route::get('/homee', function () {
+    return view('ihya.index');
+})->name('homee');
+
 
 Route::get('/import', function () {
     $smallPath = storage_path('app\public\qualIntUpload1.csv');
@@ -66,6 +70,12 @@ Route::middleware(['auth', 'verification'])->group(function () {
     Route::resource('forum_comment', ForumCommentController::class);
 
     Route::get('/alljobs', [JobExamController::class, 'allJobs'])->name('allJobs');
+    Route::get('/career', function () {
+        return view('ihya.career_path.index');
+    });
+    Route::get('/logged/home', function () {
+        return view('ihya.logged_home');
+    })->name('loggedHome');
 });
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [RegisterController::class, 'logout'])->name('logout');

@@ -16,8 +16,9 @@ class ProfileController extends Controller
         $state = $user->state;
         $mahall = $user->mahallAc;
         $savedJobs = $user->savedJobs;
+        $areas = $user->interestAreas;
         $qualifications = $user->specialQualifications()->with('qualification')->get();
-        return view('ihya.profile.index', compact('user', 'state', 'mahall', 'savedJobs', 'qualifications'));
+        return view('ihya.profile.index', compact('user', 'state', 'mahall', 'savedJobs', 'qualifications', 'areas'));
     }
 
     /**

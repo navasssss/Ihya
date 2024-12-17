@@ -196,7 +196,7 @@
                     interested_areas: interested_areas
                 },
                 success: function(response) {
-                    // location.href =
+                    location.href = "{{ route('loggedHome') }}"
 
                 },
                 error: function(response) {

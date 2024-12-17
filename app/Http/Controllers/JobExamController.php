@@ -67,6 +67,9 @@ class JobExamController extends Controller
                 $q->whereIn('interest_areas.id', $request->interest_areas);
             });
         }
+        if ($request->filled('type')) {
+            $jobsQuery->where('type', $request->type);
+        }
 
         // Get the all jobs count for removed jobs due to age and gender
         $allJobs = $jobsQuery->get(); // This fetches all jobs without pagination
@@ -75,15 +78,15 @@ class JobExamController extends Controller
         })->count();
 
         // Now apply pagination
-        $perPage = 5; // Number of jobs per page
-        $page = $request->input('page', 1); // Current page, default to 1
-        $filteredJobs = $jobsQuery->paginate($perPage, ['*'], 'page', $page);
+        // $perPage = 5; // Number of jobs per page
+        // $page = $request->input('page', 1); // Current page, default to 1
+        // $filteredJobs = $jobsQuery->paginate($perPage, ['*'], 'page', $page);
 
         // Apply the is_qualified filter
         if ($request->filled('is_qualified')) {
             if ($request->is_qualified == 'qualified') {
                 // Only return jobs where the user has all qualifications
-                $filteredJobs = $filteredJobs->filter(function ($job) use ($userQualifications) {
+                $filteredJobs = $allJobs->filter(function ($job) use ($userQualifications) {
                     $qualificationCheck = $this->checkQualifications($userQualifications, $job->jobQualifications->pluck('id')->toArray());
                     return $qualificationCheck['qualified']; // Keep jobs where user is qualified
                 });
@@ -93,7 +96,7 @@ class JobExamController extends Controller
                 $notQualifiedJobs = [];
 
                 // Go through each job to find missing and having qualifications
-                foreach ($filteredJobs as $job) {
+                foreach ($allJobs as $job) {
                     $qualificationCheck = $this->checkQualifications(
                         $userQualifications,
                         $job->jobQualifications->pluck('id')->toArray()
@@ -190,23 +193,29 @@ class JobExamController extends Controller
     public function show($id)
     {
         $user = Auth::user();
-        $job = JobExam::with('interestArea')->find((int)$id);
-        $area = $user->interestAreas()->pluck('interest_areas.id')->toArray();  // Convert to array
         $user_age = \Carbon\Carbon::parse($user->dob)->age;
-        $userQualifications = $user->specialQualifications()->pluck('name')->toArray();
-        $jobQualifications = json_decode($job->r_qualification, true);
+        $user_gender = $user->gender; // Assuming gender is stored in the user table
+        $userQualifications = $user->specialQualifications()->pluck('special_qualifications.id')->toArray();
+        // Initialize the query with the relationships
+        $job = JobExam::with(['interestArea', 'jobQualifications'])->find(decrypt($id));
+        $jobQualifications = $job->jobQualifications->pluck('id')->toArray();
         $result = $this->checkQualifications($userQualifications, $jobQualifications);
 
         $data = [];
         if ($result['qualified']) {
-            $data[] = $job;
+            $data[] = [
+                'job' =>  $job,
+                'qualified' => $result['qualified'],
+            ];
         } else {
             $data[] = [
                 'job' => $job,
+                'qualified' => $result['qualified'],
+                'having' => $result['having'],
                 'missing' => $result['missing'],
             ];
         }
-        return response()->json($data);
+        return view('ihya.job_show', compact('data'));
     }
 
     /**
@@ -214,97 +223,97 @@ class JobExamController extends Controller
      */
     public function edit(string $id)
     {
-        $user = Auth::user();
-        $user_gender = $user->gender;
-        $area = $user->interestAreas()->pluck('interest_areas.id')->toArray();  // Convert to array
+        // $user = Auth::user();
+        // $user_gender = $user->gender;
+        // $area = $user->interestAreas()->pluck('interest_areas.id')->toArray();  // Convert to array
 
-        $user_age = \Carbon\Carbon::parse($user->dob)->age;
-        $userQualifications = $user->specialQualifications()->pluck('special_qualifications.id')->toArray();
+        // $user_age = \Carbon\Carbon::parse($user->dob)->age;
+        // $userQualifications = $user->specialQualifications()->pluck('special_qualifications.id')->toArray();
 
-        $jobs = JobExam::with(['interestArea', 'jobQualifications'])->get();
-        $jobQualNames = $jobs->flatMap(function ($job) {
-            return $job->jobQualifications->pluck('name');
-        })->toArray();
-        // Removed jobs on basis of age
-        $removedJobsCountAge = $jobs->filter(function ($job) use ($user_age) {
-            return $job->min_age > $user_age || $job->max_age < $user_age;  // Correct filter closure
-        })->count();
-        // Removed jobs on basis of gender
-        $removedJobsCountGender = $jobs->filter(function ($job) use ($user_gender) {
-            return $job->gender !== $user_gender && $job->gender !== "all";  // Correct filter closure
-        })->count();
-
-
-        //filtered jobs on basis of age and gender
-        $filteredJobs = $jobs->filter(function ($job) use ($user_age, $user_gender) {
-            return $job->min_age <= $user_age &&
-                $job->max_age >= $user_age &&
-                ($job->gender === $user_gender || $job->gender === 'all');
-        });
-        // filtered jobs on basis of age, gender and interested area
-        $interested_filteredJobs = $filteredJobs->filter(function ($job) use ($area) {
-            // Use Laravel's `intersect` method to find overlaps
-            return collect($job->interestArea->pluck('id'))->intersect($area)->isNotEmpty();
-        });
+        // $jobs = JobExam::with(['interestArea', 'jobQualifications'])->get();
+        // $jobQualNames = $jobs->flatMap(function ($job) {
+        //     return $job->jobQualifications->pluck('name');
+        // })->toArray();
+        // // Removed jobs on basis of age
+        // $removedJobsCountAge = $jobs->filter(function ($job) use ($user_age) {
+        //     return $job->min_age > $user_age || $job->max_age < $user_age;  // Correct filter closure
+        // })->count();
+        // // Removed jobs on basis of gender
+        // $removedJobsCountGender = $jobs->filter(function ($job) use ($user_gender) {
+        //     return $job->gender !== $user_gender && $job->gender !== "all";  // Correct filter closure
+        // })->count();
 
 
-        // filtered jobs on basis of age, gender and Not-interested area
-        $notInterested_filteredJobs = $filteredJobs->reject(function ($job) use ($area) {
-            return collect($job->interestArea->pluck('id'))->intersect($area)->isNotEmpty();
-        });
+        // //filtered jobs on basis of age and gender
+        // $filteredJobs = $jobs->filter(function ($job) use ($user_age, $user_gender) {
+        //     return $job->min_age <= $user_age &&
+        //         $job->max_age >= $user_age &&
+        //         ($job->gender === $user_gender || $job->gender === 'all');
+        // });
+        // // filtered jobs on basis of age, gender and interested area
+        // $interested_filteredJobs = $filteredJobs->filter(function ($job) use ($area) {
+        //     // Use Laravel's `intersect` method to find overlaps
+        //     return collect($job->interestArea->pluck('id'))->intersect($area)->isNotEmpty();
+        // });
 
 
+        // // filtered jobs on basis of age, gender and Not-interested area
+        // $notInterested_filteredJobs = $filteredJobs->reject(function ($job) use ($area) {
+        //     return collect($job->interestArea->pluck('id'))->intersect($area)->isNotEmpty();
+        // });
 
 
 
 
-        // Filter qualified and not qualified jobs from filtered interested areas
-        $interestedFilteredQualified = [];
-        $interestedFilteredNotQualified = [];
-        foreach ($interested_filteredJobs as $job) {
-            $jobQualifications = $job->jobQualifications->pluck('id')->filter()->toArray();
-            // dd($jobQualifications);
-            $result = $this->checkQualifications($userQualifications, $jobQualifications);
-
-            if ($result['qualified']) {
-                $interestedFilteredQualified[] = $job;
-            } else {
-                $interestedFilteredNotQualified[] = [
-                    'job' => $job,
-                    'missing' => $result['missing'],
-                ];
-            }
-        }
 
 
+        // // Filter qualified and not qualified jobs from filtered interested areas
+        // $interestedFilteredQualified = [];
+        // $interestedFilteredNotQualified = [];
+        // foreach ($interested_filteredJobs as $job) {
+        //     $jobQualifications = $job->jobQualifications->pluck('id')->filter()->toArray();
+        //     // dd($jobQualifications);
+        //     $result = $this->checkQualifications($userQualifications, $jobQualifications);
 
-        // Filter qualified and not qualified jobs from filtered not-interested areas
-        $notInterestedFilteredQualified = [];
-        $notInterestedFilteredNotQualified = [];
-        foreach ($notInterested_filteredJobs as $job) {
-            $jobQualifications = $job->jobQualifications->pluck('id')->filter()->toArray();
-            $result = $this->checkQualifications($userQualifications, $jobQualifications);
-
-            if ($result['qualified']) {
-                $notInterestedFilteredQualified[] = $job;
-            } else {
-                $NotInterestedFilteredNotQualified[] = [
-                    'job' => $job,
-                    'missing' => $result['missing'],
-                ];
-            }
-        }
-        // dd($interestedFilteredNotQualified);
+        //     if ($result['qualified']) {
+        //         $interestedFilteredQualified[] = $job;
+        //     } else {
+        //         $interestedFilteredNotQualified[] = [
+        //             'job' => $job,
+        //             'missing' => $result['missing'],
+        //         ];
+        //     }
+        // }
 
 
-        return response()->json([
-            'interested_filtered_qualified' => $interestedFilteredQualified,
-            'interested_filtered_not_qualified' => $interestedFilteredNotQualified,
-            'not_interested_filtered_qualified' => $notInterestedFilteredQualified,
-            'not_interested_filtered_not_qualified' => $notInterestedFilteredNotQualified,
-            'removed_age' => $removedJobsCountAge,
-            'removed_gender' => $removedJobsCountGender,
-        ]);
+
+        // // Filter qualified and not qualified jobs from filtered not-interested areas
+        // $notInterestedFilteredQualified = [];
+        // $notInterestedFilteredNotQualified = [];
+        // foreach ($notInterested_filteredJobs as $job) {
+        //     $jobQualifications = $job->jobQualifications->pluck('id')->filter()->toArray();
+        //     $result = $this->checkQualifications($userQualifications, $jobQualifications);
+
+        //     if ($result['qualified']) {
+        //         $notInterestedFilteredQualified[] = $job;
+        //     } else {
+        //         $NotInterestedFilteredNotQualified[] = [
+        //             'job' => $job,
+        //             'missing' => $result['missing'],
+        //         ];
+        //     }
+        // }
+        // // dd($interestedFilteredNotQualified);
+
+
+        // return response()->json([
+        //     'interested_filtered_qualified' => $interestedFilteredQualified,
+        //     'interested_filtered_not_qualified' => $interestedFilteredNotQualified,
+        //     'not_interested_filtered_qualified' => $notInterestedFilteredQualified,
+        //     'not_interested_filtered_not_qualified' => $notInterestedFilteredNotQualified,
+        //     'removed_age' => $removedJobsCountAge,
+        //     'removed_gender' => $removedJobsCountGender,
+        // ]);
     }
 
     /**

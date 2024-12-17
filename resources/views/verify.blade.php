@@ -87,7 +87,7 @@
                             "<div class='alert alert-success'>OTP verified successfully</div>"
                         );
                         setTimeout(() => {
-                            window.location.href = "{{ route('home') }}";
+                            window.location.href = "{{ route('qualification.index') }}";
                         }, 1000)
                     },
                     error: function(xhr, status, error) {
