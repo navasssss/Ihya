@@ -89,10 +89,13 @@
                         toward excellence and shared success!</p>
                 </div>
                 <div>
-                    <div class="mt-12 flex flex-col text-center md:w-full"><button
-                            class="bg-gold-bg-dark md:text-2xl text-lg rounded-full py-1 border-gold border-solid border-2 md:px-18 px-6 my-4">Proceed
-                            to Join</button>
-                        <p class="text-nowrap text-sm mt-2">Already have an account? <a href="#"
+                    <div class="mt-12 flex flex-col text-center md:w-full">
+                        <a href="{{ route('register.index') }}">
+                            <button
+                                class="bg-gold-bg-dark md:text-2xl text-lg rounded-full py-1 border-gold border-solid border-2 md:px-18 px-6 my-4">Proceed
+                                to Join</button>
+                        </a>
+                        <p class="text-nowrap text-sm mt-2">Already have an account? <a href="{{ route('register.index') }}"
                                 class="text-gold-dark">Sign in</a></p>
                     </div>
                 </div>
@@ -300,7 +303,8 @@
                 <img src="{{ asset('assets/src/image-border.svg') }}" alt=""
                     class="w-full absolute left-0 bottom-0 rotate-180">
 
-                <iframe width="640" height="360" src="https://www.youtube.com/embed/-ctoM78lPF4"
+                <iframe class="w-auto h-auto m-3 md:h-96 md:w-auto aspect-video"
+                    src="https://www.youtube.com/embed/-ctoM78lPF4"
                     title="Ihya | Government Service Assistant for Muslim Community Upliftment" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -322,9 +326,11 @@
                 better future of Ummah....</h1>
         </div>
         <div class="flex place-content-center items-start w-1/2">
-            <button
-                class="bg-[#D39C32] rounded-xl md:px-8 px-2 py-2 text-xl font-semibold font-Calibri text-nowrap text-white">Get
-                Started</button>
+            <a href="{{ route('register.index') }}">
+                <button
+                    class="bg-[#D39C32] rounded-xl md:px-8 px-2 py-2 text-xl font-semibold font-Calibri text-nowrap text-white">Get
+                    Started</button>
+            </a>
         </div>
     </section>
 
